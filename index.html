@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamCert — Free IT Certification Exam Prep | AWS, Azure, GCP, CISSP & 30+ Exams</title>
+    <meta name="description" content="Free practice exams for AWS, Azure, GCP, CISSP, CCNA, PMP and 30+ IT certifications. 30,000+ exam-style questions with detailed explanations. Pass your cert or get 100% money back.">
+    <meta name="keywords" content="ExamCert, IT certification, AWS certification, Azure certification, GCP certification, CISSP, CCNA, PMP, practice exams, free exam prep, cloud certification 2026">
+    <meta name="author" content="ExamCert">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://andyphamaus.github.io/examcert/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ExamCert — Free IT Certification Exam Prep">
+    <meta property="og:description" content="30,000+ practice questions for AWS, Azure, GCP, CISSP & 30+ IT certs. Free to start, $4.99 lifetime access.">
+    <meta property="og:url" content="https://andyphamaus.github.io/examcert/">
+    <meta property="og:image" content="https://www.examcert.app/assets/images/og-image.jpg">
+    <style>
+        :root {
+            --primary: #0f2347;
+            --accent: #75c32c;
+            --accent-dark: #5a9922;
+            --text: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --aws: #ff9900;
+            --azure: #0078d4;
+            --gcp: #4285f4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f2347 0%, #1b3b6f 50%, #2e5298 100%);
+            padding: 5rem 0 4rem;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(117,195,44,.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #75c32c, #a3e635);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,.85);
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .stat-label { font-size: .85rem; color: rgba(255,255,255,.7); }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 20px rgba(117,195,44,.4);
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(117,195,44,.5); }
+
+        /* Sections */
+        section { padding: 4rem 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: .5rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        /* Cert Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .cert-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,.06);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .cert-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,.1); }
+        .cert-card h3 { font-size: 1.25rem; margin-bottom: .75rem; }
+        .cert-card p { color: var(--text-secondary); font-size: .95rem; margin-bottom: 1rem; }
+        .cert-list { list-style: none; padding: 0; }
+        .cert-list li {
+            padding: .4rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+        .cert-list li:last-child { border: none; }
+        .cert-list a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .2s;
+        }
+        .cert-list a:hover { color: var(--accent); }
+        .cert-badge {
+            display: inline-block;
+            padding: .15rem .5rem;
+            border-radius: 4px;
+            font-size: .7rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .badge-aws { background: var(--aws); }
+        .badge-azure { background: var(--azure); }
+        .badge-gcp { background: var(--gcp); }
+        .badge-security { background: #dc2626; }
+        .badge-other { background: #7c3aed; }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(117,195,44,.15), rgba(117,195,44,.05));
+        }
+        .feature h3 { margin-bottom: .5rem; }
+        .feature p { color: var(--text-secondary); font-size: .95rem; }
+
+        /* Guarantee */
+        .guarantee {
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            color: #fff;
+            margin: 2rem 0;
+        }
+        .guarantee h2 { font-size: 2rem; margin-bottom: .75rem; }
+        .guarantee p { font-size: 1.1rem; opacity: .9; max-width: 600px; margin: 0 auto; }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,.8);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
+        .footer-links a { color: rgba(255,255,255,.7); font-size: .9rem; }
+        .footer-bottom { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: 2rem; }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-stats { gap: 1.5rem; }
+            .cert-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1>Pass Your IT Certification with <span>ExamCert</span></h1>
+        <p>Free practice exams for AWS, Azure, GCP, CISSP, and 30+ certifications. 30,000+ exam-style questions with detailed explanations. $4.99 lifetime access.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number">38</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">30,000+</div>
+                <div class="stat-label">Practice Questions</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Pass Rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$4.99</div>
+                <div class="stat-label">Lifetime Access</div>
+            </div>
+        </div>
+        <a href="https://www.examcert.app/" class="cta-btn">▶ Start Free Practice</a>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">38 Certifications Covered</h2>
+        <p class="section-subtitle">Each cert has its own dedicated app with 1,000+ practice questions</p>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <h3 style="color: var(--aws);">☁️ AWS Certifications</h3>
+                <p>Amazon Web Services cloud certifications from foundational to professional level.</p>
+                <ul class="cert-list">
+                    <li><span class="cert-badge badge-aws">NEW</span> <a href="https://www.examcert.app/exams/aws-clf-c02/">CLF-C02 — Cloud Practitioner</a></li>
+                    <li><span class="cert-badge badge-aws">HOT</span> <a href="https://www.examcert.app/exams/aws-saa-c03/">SAA-C03 — Solutions Architect Associate</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-dva-c02/">DVA-C02 — Developer Associate</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-sap-c02/">SAP-C02 — Solutions Architect Professional</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-dop-c02/">DOP-C02 — DevOps Engineer Professional</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-scs-c03/">SCS-C03 — Security Specialty</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-aif-c01/">AIF-C01 — AI Practitioner</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-dea-c01/">DEA-C01 — Data Engineer Associate</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-mla-c01/">MLA-C01 — ML Engineer Associate</a></li>
+                    <li><a href="https://www.examcert.app/exams/aws-aip-c01/">AIP-C01 — AI Practitioner Professional</a></li>
+                </ul>
+            </div>
+
+            <div class="cert-card">
+                <h3 style="color: var(--azure);">🔷 Azure Certifications</h3>
+                <p>Microsoft Azure cloud certifications from fundamentals to expert.</p>
+                <ul class="cert-list">
+                    <li><span class="cert-badge badge-azure">HOT</span> <a href="https://www.examcert.app/exams/azure-az-900/">AZ-900 — Azure Fundamentals</a></li>
+                    <li><span class="cert-badge badge-azure">HOT</span> <a href="https://www.examcert.app/exams/azure-az-104/">AZ-104 — Azure Administrator</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-az-204/">AZ-204 — Azure Developer</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-az-305/">AZ-305 — Solutions Architect Expert</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-az-400/">AZ-400 — DevOps Engineer Expert</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-az-500/">AZ-500 — Security Engineer</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-az-700/">AZ-700 — Network Engineer</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-ai-900/">AI-900 — AI Fundamentals</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-ai-102/">AI-102 — AI Engineer</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-dp-900/">DP-900 — Data Fundamentals</a></li>
+                    <li><a href="https://www.examcert.app/exams/azure-dp-100/">DP-100 — Data Scientist</a></li>
+                    <li><a href="https://www.examcert.app/exams/microsoft-md-102/">MD-102 — Endpoint Administrator</a></li>
+                </ul>
+            </div>
+
+            <div class="cert-card">
+                <h3 style="color: var(--gcp);">🌐 Google Cloud & More</h3>
+                <p>GCP certifications plus professional security, networking, and management certs.</p>
+                <ul class="cert-list">
+                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-ace/">ACE — Associate Cloud Engineer</a></li>
+                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-pca/">PCA — Professional Cloud Architect</a></li>
+                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-cse/">CSE — Cloud Security Engineer</a></li>
+                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-pde/">PDE — Professional Data Engineer</a></li>
+                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-pcd/">PCD — Professional Cloud Developer</a></li>
+                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/cissp/">CISSP — Security Professional</a></li>
+                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/ccsp/">CCSP — Cloud Security Professional</a></li>
+                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/cisa/">CISA — IS Auditor</a></li>
+                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/cism/">CISM — Security Manager</a></li>
+                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/ceh-v13/">CEH v13 — Ethical Hacker</a></li>
+                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/ccna/">CCNA 200-301 — Network Associate</a></li>
+                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/pmp/">PMP — Project Management</a></li>
+                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/itil-4/">ITIL 4 Foundation</a></li>
+                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/docker-dca/">Docker DCA</a></li>
+                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/nca-aiio/">NCA-AIIO — AI Infrastructure</a></li>
+                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/oci-1z0-1127/">OCI 1Z0-1127 — Oracle Cloud</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: #fff;">
+    <div class="container">
+        <h2 class="section-title">Why ExamCert?</h2>
+        <p class="section-subtitle">Everything you need to pass your certification exam</p>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">📝</div>
+                <h3>Exam-Style Questions</h3>
+                <p>1,000+ questions per certification, updated every 2 weeks to match the latest exam patterns.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💡</div>
+                <h3>Detailed Explanations</h3>
+                <p>Every question comes with a thorough explanation so you understand the concept, not just the answer.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Track your scores, identify weak areas, and know exactly when you're ready for the real exam.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⏱️</div>
+                <h3>Timed Mock Exams</h3>
+                <p>Simulate the real exam environment with timed practice tests that mirror the official format.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Study Anywhere</h3>
+                <p>Native iOS and Android apps. Study on your commute, during lunch, or whenever you have 5 minutes.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>$4.99 Lifetime</h3>
+                <p>One-time payment. No subscriptions. Free updates forever. Cheaper than a coffee.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="guarantee">
+            <h2>🛡️ 100% Money-Back Guarantee</h2>
+            <p>Pass your certification exam on the first attempt — or get a full refund. No questions asked. We're that confident in our practice exams.</p>
+        </div>
+    </div>
+</section>
+
+<section style="background: #fff;">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">From download to certified in 3 simple steps</p>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">1️⃣</div>
+                <h3>Download Free App</h3>
+                <p>Pick your certification and download the dedicated app. Free on <a href="https://www.examcert.app/">iOS & Android</a> with 3 practice sets included.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">2️⃣</div>
+                <h3>Practice Smart</h3>
+                <p>Study with expert-curated questions. Detailed explanations help you understand, not just memorize.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">3️⃣</div>
+                <h3>Pass Your Exam</h3>
+                <p>Join thousands of certified professionals. 95% first-attempt pass rate. <a href="https://www.examcert.app/refund/">Money-back guarantee</a> if you fail.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title">Ready to Get Certified?</h2>
+        <p class="section-subtitle">Join 50,000+ professionals who passed their certifications with <a href="https://www.examcert.app/">ExamCert</a></p>
+        <a href="https://www.examcert.app/" class="cta-btn">▶ Start Free Practice at ExamCert</a>
+        <p style="margin-top: 1rem; color: var(--text-secondary); font-size: .9rem;">No credit card required • Free question sets for every exam</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p style="font-size: 1.25rem; font-weight: 700;"><a href="https://www.examcert.app/" style="color: #fff;">ExamCert</a></p>
+        <p style="margin-top: .5rem;">Free IT Certification Exam Prep — AWS, Azure, GCP, CISSP & 30+ Exams</p>
+        <div class="footer-links">
+            <a href="https://www.examcert.app/">Home</a>
+            <a href="https://www.examcert.app/exams/">All Exams</a>
+            <a href="https://www.examcert.app/blog/">Blog</a>
+            <a href="https://www.examcert.app/about/">About</a>
+            <a href="https://www.examcert.app/pricing/">Pricing</a>
+            <a href="https://www.examcert.app/refund/">Refund Policy</a>
+            <a href="https://www.examcert.app/contact/">Contact</a>
+        </div>
+        <p class="footer-bottom">© 2025 <a href="https://www.examcert.app/">ExamCert</a>. All rights reserved. Not affiliated with AWS, Microsoft, Google, or any certification body.</p>
+    </div>
+</footer>
+
+</body>
+</html>
