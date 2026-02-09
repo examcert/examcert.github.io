@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I'd Study for the AWS SAA-C03 If I Had to Start Over — ExamCert Blog</title>
+<meta name="description" content="A practical, no-fluff guide to passing the AWS Solutions Architect Associate SAA-C03 exam in 2026. Domains, study tips, and what actually matters.">
+<meta name="keywords" content="AWS SAA-C03, AWS Solutions Architect Associate, AWS certification, cloud certification, ExamCert, practice exams">
+<meta name="author" content="ExamCert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examcert.github.io/blog/aws-saa-c03-study-guide/">
+<meta property="og:title" content="How I'd Study for the AWS SAA-C03 If I Had to Start Over">
+<meta property="og:description" content="A practical, no-fluff guide to passing the AWS Solutions Architect Associate SAA-C03 exam in 2026.">
+<meta property="og:url" content="https://examcert.github.io/blog/aws-saa-c03-study-guide/">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+h3{color:#93c5fd;font-size:1.15rem;margin:20px 0 8px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+a:hover{color:#5a9922}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+blockquote{border-left:3px solid #75c32c;padding:10px 20px;margin:20px 0;color:#94a3b8;background:#0f172a;border-radius:0 6px 6px 0}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+.back:hover{color:#93c5fd}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>How I'd Study for the AWS SAA-C03 If I Had to Start Over</h1>
+<div class="meta">Published February 9, 2026 · 6 min read</div>
+
+<p>The AWS Solutions Architect Associate is probably the most popular cloud certification out there. And for good reason — it opens doors, it pays well, and it forces you to actually understand how AWS services fit together. But there's a lot of bad advice floating around about how to prepare for it.</p>
+
+<p>I've seen people spend six months studying for this exam. I've also seen people pass it in three weeks. The difference isn't intelligence — it's knowing what to focus on and what to skip.</p>
+
+<h2>What the SAA-C03 Actually Tests</h2>
+
+<p>Let's get the basics out of the way. The SAA-C03 has <strong>65 questions</strong>, and you get <strong>130 minutes</strong> to finish. The passing score is <strong>720 out of 1000</strong>. It costs <strong>$150 USD</strong>. You can take it at a Pearson VUE center or online from home.</p>
+
+<p>The exam breaks down into four domains:</p>
+
+<ul>
+<li><strong>Domain 1: Design Secure Architectures (30%)</strong> — IAM policies, encryption, VPC security, network segmentation</li>
+<li><strong>Domain 2: Design Resilient Architectures (26%)</strong> — Multi-AZ deployments, auto scaling, disaster recovery strategies</li>
+<li><strong>Domain 3: Design High-Performing Architectures (24%)</strong> — Choosing the right database, caching, CDN, compute options</li>
+<li><strong>Domain 4: Design Cost-Optimized Architectures (20%)</strong> — Reserved vs. Spot vs. On-Demand, storage tiers, right-sizing</li>
+</ul>
+
+<p>That first domain is the big one. Security alone is almost a third of your score. If you don't know IAM inside and out, you're going to have a rough time.</p>
+
+<h2>The Services That Actually Matter</h2>
+
+<p>AWS has over 200 services. The SAA-C03 cares about maybe 30 of them deeply, and another 20 at a surface level. Here's where I'd spend my time:</p>
+
+<h3>Must-Know Cold</h3>
+<ul>
+<li><strong>EC2</strong> — Instance types, placement groups, pricing models. Know the difference between Dedicated Hosts and Dedicated Instances.</li>
+<li><strong>S3</strong> — Storage classes (Standard, IA, One Zone-IA, Glacier, Glacier Deep Archive), lifecycle policies, versioning, cross-region replication</li>
+<li><strong>VPC</strong> — Subnets, route tables, NACLs vs security groups, NAT gateways, VPC peering, Transit Gateway</li>
+<li><strong>RDS</strong> — Multi-AZ vs Read Replicas, Aurora specifics, automated backups</li>
+<li><strong>IAM</strong> — Policies, roles, cross-account access, identity federation</li>
+<li><strong>ELB</strong> — ALB vs NLB vs Gateway LB, health checks, sticky sessions</li>
+</ul>
+
+<h3>Know Well Enough</h3>
+<ul>
+<li><strong>Lambda, API Gateway, SQS, SNS, EventBridge</strong> — serverless patterns come up a lot</li>
+<li><strong>DynamoDB</strong> — partition keys, GSIs, DAX caching, on-demand vs provisioned</li>
+<li><strong>CloudFront</strong> — origin access, signed URLs, Lambda@Edge</li>
+<li><strong>EFS vs FSx</strong> — when to use which file system</li>
+<li><strong>KMS, Secrets Manager, ACM</strong> — encryption at rest and in transit</li>
+</ul>
+
+<p>You don't need to know every single parameter. But you need to know <em>when</em> to pick each service. That's the whole point of being a solutions architect.</p>
+
+<h2>My Study Plan (If I Started From Scratch)</h2>
+
+<p><strong>Week 1-2:</strong> Go through a structured video course. I don't care which one — Stephane Maarek, Adrian Cantrill, or the official AWS Skill Builder. Pick one and stick with it. Don't watch two courses. That's a waste of time.</p>
+
+<p><strong>Week 3:</strong> Start doing practice exams. This is where the real learning happens. Every wrong answer teaches you something a video never will. I'd recommend hitting up <a href="https://www.examcert.app/exams/aws-saa-c03/">ExamCert</a> for free practice questions — they cover all four domains and the explanations are genuinely helpful.</p>
+
+<p><strong>Week 4:</strong> Review your weak areas. If you keep getting VPC questions wrong, go back and lab it out. Spin up a VPC from scratch — subnets, route tables, internet gateway, NAT gateway, the whole thing. Nothing beats hands-on experience.</p>
+
+<blockquote>Hot take: Reading whitepapers is overrated for this exam. The Well-Architected Framework whitepaper is worth skimming, but don't burn a whole week on documentation. Practice questions are a better use of your time.</blockquote>
+
+<h2>Common Traps on the Exam</h2>
+
+<p>AWS loves to test your ability to pick the <em>most</em> cost-effective or <em>most</em> operationally efficient solution. Here are patterns I've seen trip people up:</p>
+
+<ol>
+<li><strong>"Least operational overhead"</strong> usually means managed services. If the answer choices include managing your own EC2 cluster vs. using a fully managed service, go with managed. Every time.</li>
+<li><strong>Multi-AZ vs Multi-Region</strong> — Multi-AZ is for high availability within a region. Multi-Region is for disaster recovery across regions. Know the difference.</li>
+<li><strong>S3 storage class questions</strong> — They love asking about moving data between tiers. Remember: S3 Intelligent-Tiering exists and it's often the right answer when access patterns are unpredictable.</li>
+<li><strong>SQS vs SNS vs EventBridge</strong> — SQS is for decoupling with queues. SNS is for fan-out (one message to many subscribers). EventBridge is for event-driven routing with filtering rules.</li>
+</ol>
+
+<h2>Is the SAA-C03 Worth It in 2026?</h2>
+
+<p>Honestly? Yes. Despite what some people say about certifications being "just paper," the SAA-C03 carries real weight. It's the most recognized cloud cert globally. Recruiters filter for it. Hiring managers respect it. And the knowledge you gain studying for it is practical — you'll actually use it on the job.</p>
+
+<p>The ROI is hard to beat. $150 for the exam, maybe $30-50 for study materials (or free if you use resources like <a href="https://www.examcert.app/exams/aws-saa-c03/">ExamCert</a>), and a few weeks of focused study. Compare that to a bootcamp that costs $15,000 and takes three months.</p>
+
+<p>One thing though — don't stop at the cert. Build something on AWS after you pass. Deploy a real application. Set up a CI/CD pipeline. The certification gets you in the door; the hands-on skills keep you there.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>The SAA-C03 isn't easy, but it's not the monster some people make it out to be. Focus on the high-weight domains (security and resilience are over half the exam), do a ton of practice questions, and don't overthink it. Four weeks of solid, focused study is enough for most people with some cloud background.</p>
+
+<p>If you're brand new to AWS, give yourself six to eight weeks. No shame in that. The point is to actually learn the material, not just memorize answers.</p>
+
+<p>Good luck. You've got this.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/aws-saa-c03/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
