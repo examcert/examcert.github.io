@@ -1,413 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExamCert — Free IT Certification Exam Prep | AWS, Azure, GCP, CISSP & 30+ Exams</title>
-    <meta name="description" content="Free practice exams for AWS, Azure, GCP, CISSP, CCNA, PMP and 30+ IT certifications. 30,000+ exam-style questions with detailed explanations. Pass your cert or get 100% money back.">
-    <meta name="keywords" content="ExamCert, IT certification, AWS certification, Azure certification, GCP certification, CISSP, CCNA, PMP, practice exams, free exam prep, cloud certification 2026">
-    <meta name="author" content="ExamCert">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://andyphamaus.github.io/examcert/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ExamCert — Free IT Certification Exam Prep">
-    <meta property="og:description" content="30,000+ practice questions for AWS, Azure, GCP, CISSP & 30+ IT certs. Free to start, $4.99 lifetime access.">
-    <meta property="og:url" content="https://andyphamaus.github.io/examcert/">
-    <meta property="og:image" content="https://www.examcert.app/assets/images/og-image.jpg">
-    <style>
-        :root {
-            --primary: #0f2347;
-            --accent: #75c32c;
-            --accent-dark: #5a9922;
-            --text: #1a1a2e;
-            --text-secondary: #4a4a6a;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --aws: #ff9900;
-            --azure: #0078d4;
-            --gcp: #4285f4;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            background: var(--bg);
-        }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #0f2347 0%, #1b3b6f 50%, #2e5298 100%);
-            padding: 5rem 0 4rem;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(117,195,44,.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        .hero h1 span {
-            background: linear-gradient(135deg, #75c32c, #a3e635);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,.85);
-            max-width: 650px;
-            margin: 0 auto 2rem;
-        }
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
-        .stat-label { font-size: .85rem; color: rgba(255,255,255,.7); }
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: #fff;
-            padding: 1rem 2.5rem;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: transform .2s, box-shadow .2s;
-            box-shadow: 0 4px 20px rgba(117,195,44,.4);
-        }
-        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(117,195,44,.5); }
-
-        /* Sections */
-        section { padding: 4rem 0; }
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: .5rem;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.05rem;
-        }
-
-        /* Cert Grid */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-        .cert-card {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,.06);
-            transition: transform .2s, box-shadow .2s;
-        }
-        .cert-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,.1); }
-        .cert-card h3 { font-size: 1.25rem; margin-bottom: .75rem; }
-        .cert-card p { color: var(--text-secondary); font-size: .95rem; margin-bottom: 1rem; }
-        .cert-list { list-style: none; padding: 0; }
-        .cert-list li {
-            padding: .4rem 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-        .cert-list li:last-child { border: none; }
-        .cert-list a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color .2s;
-        }
-        .cert-list a:hover { color: var(--accent); }
-        .cert-badge {
-            display: inline-block;
-            padding: .15rem .5rem;
-            border-radius: 4px;
-            font-size: .7rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .badge-aws { background: var(--aws); }
-        .badge-azure { background: var(--azure); }
-        .badge-gcp { background: var(--gcp); }
-        .badge-security { background: #dc2626; }
-        .badge-other { background: #7c3aed; }
-
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .feature {
-            text-align: center;
-            padding: 2rem 1.5rem;
-        }
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1rem;
-            background: linear-gradient(135deg, rgba(117,195,44,.15), rgba(117,195,44,.05));
-        }
-        .feature h3 { margin-bottom: .5rem; }
-        .feature p { color: var(--text-secondary); font-size: .95rem; }
-
-        /* Guarantee */
-        .guarantee {
-            background: linear-gradient(135deg, #059669, #10b981);
-            border-radius: 1.5rem;
-            padding: 3rem;
-            text-align: center;
-            color: #fff;
-            margin: 2rem 0;
-        }
-        .guarantee h2 { font-size: 2rem; margin-bottom: .75rem; }
-        .guarantee p { font-size: 1.1rem; opacity: .9; max-width: 600px; margin: 0 auto; }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: rgba(255,255,255,.8);
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-        footer a { color: var(--accent); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
-        .footer-links a { color: rgba(255,255,255,.7); font-size: .9rem; }
-        .footer-bottom { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: 2rem; }
-
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-stats { gap: 1.5rem; }
-            .cert-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExamCert — Free IT Certification Exam Prep | AWS, Azure, GCP, CISSP & 30+ Exams</title>
+<meta name="description" content="Free practice exams for AWS, Azure, GCP, CISSP, CCNA, PMP and 30+ IT certifications. 30,000+ exam-style questions with detailed explanations.">
+<meta name="keywords" content="ExamCert, IT certification, AWS certification, Azure certification, GCP certification, CISSP, CCNA, PMP, practice exams, free exam prep">
+<meta name="author" content="ExamCert">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ExamCert — Free IT Certification Exam Prep">
+<meta property="og:description" content="30,000+ practice questions for AWS, Azure, GCP, CISSP & 30+ IT certs. Free to start, $4.99 lifetime access.">
+<meta property="og:url" content="https://www.examcert.app/">
+<link rel="canonical" href="https://examcert.github.io/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.6}
+.hero{background:linear-gradient(135deg,#0f2347 0%,#1a365d 50%,#0f2347 100%);padding:60px 20px;text-align:center}
+.hero h1{font-size:2.5rem;color:#75c32c;margin-bottom:10px}
+.hero p{font-size:1.2rem;color:#94a3b8;max-width:700px;margin:0 auto 20px}
+.hero .cta{display:inline-block;background:#75c32c;color:#0f2347;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.1rem}
+.hero .cta:hover{background:#5a9922}
+.stats{display:flex;justify-content:center;gap:40px;margin-top:30px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat .num{font-size:2rem;font-weight:700;color:#75c32c}
+.stat .label{font-size:0.9rem;color:#94a3b8}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
+h2{color:#75c32c;font-size:1.8rem;margin:40px 0 15px;border-bottom:2px solid #1e293b;padding-bottom:8px}
+h3{color:#60a5fa;font-size:1.3rem;margin:25px 0 10px}
+ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 20px}
+li{padding:4px 0}
+a{color:#93c5fd;text-decoration:none;transition:color 0.2s}
+a:hover{color:#75c32c;text-decoration:underline}
+.footer{text-align:center;padding:40px 20px;color:#64748b;border-top:1px solid #1e293b;margin-top:40px}
+@media(max-width:600px){.hero h1{font-size:1.8rem}.stats{gap:20px}ul{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
+<div class="hero">
+<h1>🎯 ExamCert</h1>
+<p>Free IT Certification Exam Prep — 30,000+ practice questions for AWS, Azure, GCP, CISSP, CCNA, PMP & 30+ certifications</p>
+<a href="https://www.examcert.app/" class="cta">Start Practicing Free →</a>
+<div class="stats">
+<div class="stat"><div class="num">30,000+</div><div class="label">Practice Questions</div></div>
+<div class="stat"><div class="num">30+</div><div class="label">Certifications</div></div>
+<div class="stat"><div class="num">$4.99</div><div class="label">Lifetime Access</div></div>
+<div class="stat"><div class="num">100%</div><div class="label">Money-Back Guarantee</div></div>
+</div>
+</div>
+<div class="container">
 
-<section class="hero">
-    <div class="container">
-        <h1>Pass Your IT Certification with <span>ExamCert</span></h1>
-        <p>Free practice exams for AWS, Azure, GCP, CISSP, and 30+ certifications. 30,000+ exam-style questions with detailed explanations. $4.99 lifetime access.</p>
-        <div class="hero-stats">
-            <div class="stat">
-                <div class="stat-number">38</div>
-                <div class="stat-label">Certifications</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">30,000+</div>
-                <div class="stat-label">Practice Questions</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Pass Rate</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">$4.99</div>
-                <div class="stat-label">Lifetime Access</div>
-            </div>
-        </div>
-        <a href="https://www.examcert.app/" class="cta-btn">▶ Start Free Practice</a>
-    </div>
-</section>
+<h2>📚 Main Pages</h2>
+<ul>
+<li><a href="https://www.examcert.app/about/">About</a></li>
+<li><a href="https://www.examcert.app/blog/">Blog</a></li>
+<li><a href="https://www.examcert.app/certifications/">Certifications</a></li>
+<li><a href="https://www.examcert.app/certifications/aws/">Aws</a></li>
+<li><a href="https://www.examcert.app/certifications/azure/">Azure</a></li>
+<li><a href="https://www.examcert.app/certifications/gcp/">Gcp</a></li>
+<li><a href="https://www.examcert.app/contact/">Contact</a></li>
+<li><a href="https://www.examcert.app/disclaimer/">Disclaimer</a></li>
+<li><a href="https://www.examcert.app/dmca/">Dmca</a></li>
+<li><a href="https://www.examcert.app/enterprise/">Enterprise</a></li>
+<li><a href="https://www.examcert.app/glossary/">Glossary</a></li>
+<li><a href="https://www.examcert.app/press/">Press</a></li>
+<li><a href="https://www.examcert.app/pricing/">Pricing</a></li>
+<li><a href="https://www.examcert.app/privacy/">Privacy</a></li>
+<li><a href="https://www.examcert.app/refund/">Refund</a></li>
+<li><a href="https://www.examcert.app/roadmap/">Roadmap</a></li>
+<li><a href="https://www.examcert.app/sitemap/">Sitemap</a></li>
+<li><a href="https://www.examcert.app/sitemap-page/">Sitemap Page</a></li>
+<li><a href="https://www.examcert.app/study-planner/">Study Planner</a></li>
+<li><a href="https://www.examcert.app/success-stories/">Success Stories</a></li>
+<li><a href="https://www.examcert.app/terms/">Terms</a></li>
+<li><a href="https://www.examcert.app/tools/">Tools</a></li>
+<li><a href="https://www.examcert.app/tools/certification-compare/">Certification Compare</a></li>
+<li><a href="https://www.examcert.app/tools/certification-roadmap/">Certification Roadmap</a></li>
+<li><a href="https://www.examcert.app/tools/study-time-calculator/">Study Time Calculator</a></li>
+<li><a href="https://www.examcert.app/widgets/">Widgets</a></li>
+</ul>
 
-<section>
-    <div class="container">
-        <h2 class="section-title">38 Certifications Covered</h2>
-        <p class="section-subtitle">Each cert has its own dedicated app with 1,000+ practice questions</p>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <h3 style="color: var(--aws);">☁️ AWS Certifications</h3>
-                <p>Amazon Web Services cloud certifications from foundational to professional level.</p>
-                <ul class="cert-list">
-                    <li><span class="cert-badge badge-aws">NEW</span> <a href="https://www.examcert.app/exams/aws-clf-c02/">CLF-C02 — Cloud Practitioner</a></li>
-                    <li><span class="cert-badge badge-aws">HOT</span> <a href="https://www.examcert.app/exams/aws-saa-c03/">SAA-C03 — Solutions Architect Associate</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-dva-c02/">DVA-C02 — Developer Associate</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-sap-c02/">SAP-C02 — Solutions Architect Professional</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-dop-c02/">DOP-C02 — DevOps Engineer Professional</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-scs-c03/">SCS-C03 — Security Specialty</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-aif-c01/">AIF-C01 — AI Practitioner</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-dea-c01/">DEA-C01 — Data Engineer Associate</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-mla-c01/">MLA-C01 — ML Engineer Associate</a></li>
-                    <li><a href="https://www.examcert.app/exams/aws-aip-c01/">AIP-C01 — AI Practitioner Professional</a></li>
-                </ul>
-            </div>
+<h2>🎓 Practice Exams</h2>
 
-            <div class="cert-card">
-                <h3 style="color: var(--azure);">🔷 Azure Certifications</h3>
-                <p>Microsoft Azure cloud certifications from fundamentals to expert.</p>
-                <ul class="cert-list">
-                    <li><span class="cert-badge badge-azure">HOT</span> <a href="https://www.examcert.app/exams/azure-az-900/">AZ-900 — Azure Fundamentals</a></li>
-                    <li><span class="cert-badge badge-azure">HOT</span> <a href="https://www.examcert.app/exams/azure-az-104/">AZ-104 — Azure Administrator</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-az-204/">AZ-204 — Azure Developer</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-az-305/">AZ-305 — Solutions Architect Expert</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-az-400/">AZ-400 — DevOps Engineer Expert</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-az-500/">AZ-500 — Security Engineer</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-az-700/">AZ-700 — Network Engineer</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-ai-900/">AI-900 — AI Fundamentals</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-ai-102/">AI-102 — AI Engineer</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-dp-900/">DP-900 — Data Fundamentals</a></li>
-                    <li><a href="https://www.examcert.app/exams/azure-dp-100/">DP-100 — Data Scientist</a></li>
-                    <li><a href="https://www.examcert.app/exams/microsoft-md-102/">MD-102 — Endpoint Administrator</a></li>
-                </ul>
-            </div>
+<h3>☁️ AWS Certifications</h3>
+<ul>
+<li><a href="https://www.examcert.app/exams/aws-aif-c01/">AWS AIF-C01</a></li>
+<li><a href="https://www.examcert.app/exams/aws-aip-c01/">AWS AIP-C01</a></li>
+<li><a href="https://www.examcert.app/exams/aws-clf-c02/">AWS CLF-C02</a></li>
+<li><a href="https://www.examcert.app/exams/aws-dea-c01/">AWS DEA-C01</a></li>
+<li><a href="https://www.examcert.app/exams/aws-dop-c02/">AWS DOP-C02</a></li>
+<li><a href="https://www.examcert.app/exams/aws-dva-c02/">AWS DVA-C02</a></li>
+<li><a href="https://www.examcert.app/exams/aws-mla-c01/">AWS MLA-C01</a></li>
+<li><a href="https://www.examcert.app/exams/aws-saa-c03/">AWS SAA-C03</a></li>
+<li><a href="https://www.examcert.app/exams/aws-sap-c02/">AWS SAP-C02</a></li>
+<li><a href="https://www.examcert.app/exams/aws-scs-c03/">AWS SCS-C03</a></li>
+</ul>
 
-            <div class="cert-card">
-                <h3 style="color: var(--gcp);">🌐 Google Cloud & More</h3>
-                <p>GCP certifications plus professional security, networking, and management certs.</p>
-                <ul class="cert-list">
-                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-ace/">ACE — Associate Cloud Engineer</a></li>
-                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-pca/">PCA — Professional Cloud Architect</a></li>
-                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-cse/">CSE — Cloud Security Engineer</a></li>
-                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-pde/">PDE — Professional Data Engineer</a></li>
-                    <li><span class="cert-badge badge-gcp">GCP</span> <a href="https://www.examcert.app/exams/gcp-pcd/">PCD — Professional Cloud Developer</a></li>
-                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/cissp/">CISSP — Security Professional</a></li>
-                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/ccsp/">CCSP — Cloud Security Professional</a></li>
-                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/cisa/">CISA — IS Auditor</a></li>
-                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/cism/">CISM — Security Manager</a></li>
-                    <li><span class="cert-badge badge-security">SEC</span> <a href="https://www.examcert.app/exams/ceh-v13/">CEH v13 — Ethical Hacker</a></li>
-                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/ccna/">CCNA 200-301 — Network Associate</a></li>
-                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/pmp/">PMP — Project Management</a></li>
-                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/itil-4/">ITIL 4 Foundation</a></li>
-                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/docker-dca/">Docker DCA</a></li>
-                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/nca-aiio/">NCA-AIIO — AI Infrastructure</a></li>
-                    <li><span class="cert-badge badge-other">PRO</span> <a href="https://www.examcert.app/exams/oci-1z0-1127/">OCI 1Z0-1127 — Oracle Cloud</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+<h3>🔷 Azure Certifications</h3>
+<ul>
+<li><a href="https://www.examcert.app/exams/azure-ai-102/">Azure AI-102</a></li>
+<li><a href="https://www.examcert.app/exams/azure-ai-900/">Azure AI-900</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-104/">Azure AZ-104</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-204/">Azure AZ-204</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-305/">Azure AZ-305</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-400/">Azure AZ-400</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-500/">Azure AZ-500</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-700/">Azure AZ-700</a></li>
+<li><a href="https://www.examcert.app/exams/azure-az-900/">Azure AZ-900</a></li>
+<li><a href="https://www.examcert.app/exams/azure-dp-100/">Azure DP-100</a></li>
+<li><a href="https://www.examcert.app/exams/azure-dp-900/">Azure DP-900</a></li>
+</ul>
 
-<section style="background: #fff;">
-    <div class="container">
-        <h2 class="section-title">Why ExamCert?</h2>
-        <p class="section-subtitle">Everything you need to pass your certification exam</p>
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">📝</div>
-                <h3>Exam-Style Questions</h3>
-                <p>1,000+ questions per certification, updated every 2 weeks to match the latest exam patterns.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💡</div>
-                <h3>Detailed Explanations</h3>
-                <p>Every question comes with a thorough explanation so you understand the concept, not just the answer.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📊</div>
-                <h3>Progress Tracking</h3>
-                <p>Track your scores, identify weak areas, and know exactly when you're ready for the real exam.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">⏱️</div>
-                <h3>Timed Mock Exams</h3>
-                <p>Simulate the real exam environment with timed practice tests that mirror the official format.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3>Study Anywhere</h3>
-                <p>Native iOS and Android apps. Study on your commute, during lunch, or whenever you have 5 minutes.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💰</div>
-                <h3>$4.99 Lifetime</h3>
-                <p>One-time payment. No subscriptions. Free updates forever. Cheaper than a coffee.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<h3>🌐 GCP Certifications</h3>
+<ul>
+<li><a href="https://www.examcert.app/exams/gcp-ace/">GCP ACE</a></li>
+<li><a href="https://www.examcert.app/exams/gcp-cse/">GCP CSE</a></li>
+<li><a href="https://www.examcert.app/exams/gcp-pca/">GCP PCA</a></li>
+<li><a href="https://www.examcert.app/exams/gcp-pcd/">GCP PCD</a></li>
+<li><a href="https://www.examcert.app/exams/gcp-pde/">GCP PDE</a></li>
+</ul>
 
-<section>
-    <div class="container">
-        <div class="guarantee">
-            <h2>🛡️ 100% Money-Back Guarantee</h2>
-            <p>Pass your certification exam on the first attempt — or get a full refund. No questions asked. We're that confident in our practice exams.</p>
-        </div>
-    </div>
-</section>
+<h3>🔌 Cisco Certifications</h3>
+<ul>
+<li><a href="https://www.examcert.app/exams/ccna/">CCNA</a></li>
+<li><a href="https://www.examcert.app/exams/cisco-devnet-200-901/">Cisco Devnet 200 901</a></li>
+</ul>
 
-<section style="background: #fff;">
-    <div class="container">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-subtitle">From download to certified in 3 simple steps</p>
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">1️⃣</div>
-                <h3>Download Free App</h3>
-                <p>Pick your certification and download the dedicated app. Free on <a href="https://www.examcert.app/">iOS & Android</a> with 3 practice sets included.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">2️⃣</div>
-                <h3>Practice Smart</h3>
-                <p>Study with expert-curated questions. Detailed explanations help you understand, not just memorize.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">3️⃣</div>
-                <h3>Pass Your Exam</h3>
-                <p>Join thousands of certified professionals. 95% first-attempt pass rate. <a href="https://www.examcert.app/refund/">Money-back guarantee</a> if you fail.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<h3>🔒 Security Certifications</h3>
+<ul>
+<li><a href="https://www.examcert.app/exams/ccsp/">CCSP</a></li>
+<li><a href="https://www.examcert.app/exams/ceh-v13/">CEH V13</a></li>
+<li><a href="https://www.examcert.app/exams/cisa/">CISA</a></li>
+<li><a href="https://www.examcert.app/exams/cism/">CISM</a></li>
+<li><a href="https://www.examcert.app/exams/cissp/">CISSP</a></li>
+</ul>
 
-<section>
-    <div class="container" style="text-align: center;">
-        <h2 class="section-title">Ready to Get Certified?</h2>
-        <p class="section-subtitle">Join 50,000+ professionals who passed their certifications with <a href="https://www.examcert.app/">ExamCert</a></p>
-        <a href="https://www.examcert.app/" class="cta-btn">▶ Start Free Practice at ExamCert</a>
-        <p style="margin-top: 1rem; color: var(--text-secondary); font-size: .9rem;">No credit card required • Free question sets for every exam</p>
-    </div>
-</section>
+<h3>📋 Other Certifications</h3>
+<ul>
+<li><a href="https://www.examcert.app/exams/amazon/">Amazon</a></li>
+<li><a href="https://www.examcert.app/exams/docker-dca/">Docker DCA</a></li>
+<li><a href="https://www.examcert.app/exams/itil-4/">ITIL 4</a></li>
+<li><a href="https://www.examcert.app/exams/microsoft/">Microsoft</a></li>
+<li><a href="https://www.examcert.app/exams/microsoft-md-102/">Microsoft MD-102</a></li>
+<li><a href="https://www.examcert.app/exams/nca-aiio/">NCA AIIO</a></li>
+<li><a href="https://www.examcert.app/exams/oci-1z0-1127/">OCI 1Z0 1127</a></li>
+<li><a href="https://www.examcert.app/exams/oracle-1z0-808/">Oracle 1Z0 808</a></li>
+<li><a href="https://www.examcert.app/exams/oracle-1z0-809/">Oracle 1Z0 809</a></li>
+<li><a href="https://www.examcert.app/exams/pmp/">PMP</a></li>
+</ul>
 
-<footer>
-    <div class="container">
-        <p style="font-size: 1.25rem; font-weight: 700;"><a href="https://www.examcert.app/" style="color: #fff;">ExamCert</a></p>
-        <p style="margin-top: .5rem;">Free IT Certification Exam Prep — AWS, Azure, GCP, CISSP & 30+ Exams</p>
-        <div class="footer-links">
-            <a href="https://www.examcert.app/">Home</a>
-            <a href="https://www.examcert.app/exams/">All Exams</a>
-            <a href="https://www.examcert.app/blog/">Blog</a>
-            <a href="https://www.examcert.app/about/">About</a>
-            <a href="https://www.examcert.app/pricing/">Pricing</a>
-            <a href="https://www.examcert.app/refund/">Refund Policy</a>
-            <a href="https://www.examcert.app/contact/">Contact</a>
-        </div>
-        <p class="footer-bottom">© 2025 <a href="https://www.examcert.app/">ExamCert</a>. All rights reserved. Not affiliated with AWS, Microsoft, Google, or any certification body.</p>
-    </div>
-</footer>
+<h2>🚀 Landing Pages</h2>
+<ul>
+<li><a href="https://www.examcert.app/landing/career/cloud-certified-30-days/">Cloud Certified 30 Days</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-aif-c01/">AWS AIF-C01</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-aip-c01/">AWS AIP-C01</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-clf-c02/">AWS CLF-C02</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-dea-c01/">AWS DEA-C01</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-dop-c02/">AWS DOP-C02</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-dva-c02/">AWS DVA-C02</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-mla-c01/">AWS MLA-C01</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-saa-c03/">AWS SAA-C03</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-sap-c02/">AWS SAP-C02</a></li>
+<li><a href="https://www.examcert.app/landing/cert/aws-scs-c03/">AWS SCS-C03</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-ai-102/">Azure AI-102</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-ai-900/">Azure AI-900</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-104/">Azure AZ-104</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-204/">Azure AZ-204</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-305/">Azure AZ-305</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-400/">Azure AZ-400</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-500/">Azure AZ-500</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-700/">Azure AZ-700</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-az-900/">Azure AZ-900</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-dp-100/">Azure DP-100</a></li>
+<li><a href="https://www.examcert.app/landing/cert/azure-dp-900/">Azure DP-900</a></li>
+<li><a href="https://www.examcert.app/landing/cert/ccna/">CCNA</a></li>
+<li><a href="https://www.examcert.app/landing/cert/ccsp/">CCSP</a></li>
+<li><a href="https://www.examcert.app/landing/cert/ceh-v13/">CEH V13</a></li>
+<li><a href="https://www.examcert.app/landing/cert/cisa/">CISA</a></li>
+<li><a href="https://www.examcert.app/landing/cert/cissp/">CISSP</a></li>
+<li><a href="https://www.examcert.app/landing/cert/docker-dca/">Docker DCA</a></li>
+<li><a href="https://www.examcert.app/landing/cert/gcp-ace/">GCP ACE</a></li>
+<li><a href="https://www.examcert.app/landing/cert/gcp-cse/">GCP CSE</a></li>
+<li><a href="https://www.examcert.app/landing/cert/gcp-pca/">GCP PCA</a></li>
+<li><a href="https://www.examcert.app/landing/cert/gcp-pde/">GCP PDE</a></li>
+<li><a href="https://www.examcert.app/landing/cert/itil-4/">ITIL 4</a></li>
+<li><a href="https://www.examcert.app/landing/cert/nca-aiio/">NCA AIIO</a></li>
+<li><a href="https://www.examcert.app/landing/cert/pmp/">PMP</a></li>
+<li><a href="https://www.examcert.app/landing/compare/aws-vs-azure/">AWS vs Azure</a></li>
+<li><a href="https://www.examcert.app/landing/compare/aws-vs-gcp/">AWS vs Gcp</a></li>
+<li><a href="https://www.examcert.app/landing/compare/azure-vs-gcp/">Azure vs Gcp</a></li>
+<li><a href="https://www.examcert.app/landing/compare/cissp-vs-cism/">CISSP vs CISM</a></li>
+<li><a href="https://www.examcert.app/landing/pricing/unlimited-access/">Unlimited Access</a></li>
+</ul>
 
+<h2>📝 Blog — AWS</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/aws-ai-certification-path/">AWS AI-Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/aws-aif-c01-complete-guide/">AWS AIF-C01 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-aip-c01-complete-guide/">AWS AIP-C01 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-bedrock-certification-guide/">AWS Bedrock Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-benefits-career-australia/">AWS Certification Benefits Career Australia</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-cost-australia-2026/">AWS Certification Cost Australia 2026</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-digital-badge-credly/">AWS Certification Digital Badge Credly</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-for-beginners/">AWS Certification For Beginners</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-passing-score-explained/">AWS Certification Passing Score Explained</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-renewal-guide/">AWS Certification Renewal Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-study-schedule-working-professionals/">AWS Certification Study Schedule Working Professionals</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-study-tips/">AWS Certification Study Tips</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-voucher-discount-guide/">AWS Certification Voucher Discount Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-certification-without-experience/">AWS Certification Without Experience</a></li>
+<li><a href="https://www.examcert.app/blog/aws-clf-c02-complete-guide/">AWS CLF-C02 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-clf-c02-study-plan-4-weeks/">AWS CLF-C02 Study Plan 4 Weeks</a></li>
+<li><a href="https://www.examcert.app/blog/aws-clf-vs-azure-az900-2026/">AWS Clf vs Azure Az900 2026</a></li>
+<li><a href="https://www.examcert.app/blog/aws-cloud-practitioner-vs-azure-fundamentals/">AWS Cloud Practitioner vs Azure Fundamentals</a></li>
+<li><a href="https://www.examcert.app/blog/aws-dbs-c01-complete-guide/">AWS DBS-C01 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-dea-c01-complete-guide/">AWS DEA-C01 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-dea-c01-data-engineer-path/">AWS DEA-C01 Data Engineer Path</a></li>
+<li><a href="https://www.examcert.app/blog/aws-dop-c02-complete-guide/">AWS DOP-C02 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-dva-c02-complete-guide/">AWS DVA-C02 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-exam-accommodation-requests/">AWS Exam Accommodation Requests</a></li>
+<li><a href="https://www.examcert.app/blog/aws-exam-day-what-to-expect/">AWS Exam Day What To Expect</a></li>
+<li><a href="https://www.examcert.app/blog/aws-exam-question-types-guide/">AWS Exam Question Types Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-exam-retake-policy-guide/">AWS Exam Retake Policy Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-exam-score-report-explained/">AWS Exam Score Report Explained</a></li>
+<li><a href="https://www.examcert.app/blog/aws-ml-certification-path/">AWS Ml Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/aws-mla-c01-complete-guide/">AWS MLA-C01 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-re-certification-guide/">AWS Re Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-saa-c03-complete-guide/">AWS SAA-C03 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-saa-c03-practice-questions-2026/">AWS SAA-C03 Practice Questions 2026</a></li>
+<li><a href="https://www.examcert.app/blog/aws-saa-c03-study-plan-8-weeks/">AWS SAA-C03 Study Plan 8 Weeks</a></li>
+<li><a href="https://www.examcert.app/blog/aws-saa-c03-vs-dva-c02/">AWS SAA-C03 vs DVA-C02</a></li>
+<li><a href="https://www.examcert.app/blog/aws-sap-c02-complete-guide/">AWS SAP-C02 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-sap-c02-practice-questions-2026/">AWS SAP-C02 Practice Questions 2026</a></li>
+<li><a href="https://www.examcert.app/blog/aws-scs-c03-complete-guide/">AWS SCS-C03 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-security-certification-path/">AWS Security Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/aws-security-certification-roadmap/">AWS Security Certification Roadmap</a></li>
+<li><a href="https://www.examcert.app/blog/aws-sysops-administrator-guide/">AWS Sysops Administrator Guide</a></li>
+<li><a href="https://www.examcert.app/blog/aws-vs-azure-beginners-comparison/">AWS vs Azure Beginners Comparison</a></li>
+<li><a href="https://www.examcert.app/blog/aws-vs-azure-certification-which-first/">AWS vs Azure Certification Which First</a></li>
+<li><a href="https://www.examcert.app/blog/aws-vs-azure-vs-gcp-comparison/">AWS vs Azure vs GCP Comparison</a></li>
+<li><a href="https://www.examcert.app/blog/best-aws-practice-exams-2026/">Best AWS Practice Exams 2026</a></li>
+<li><a href="https://www.examcert.app/blog/book-aws-certification-exam-australia/">Book AWS Certification Exam Australia</a></li>
+<li><a href="https://www.examcert.app/blog/clf-c02-vs-saa-c03-which-first/">CLF-C02 vs SAA-C03 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/dop-c02-vs-saa-c03-which-first/">DOP-C02 vs SAA-C03 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/dva-c02-vs-saa-c03-which-first/">DVA-C02 vs SAA-C03 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/how-to-pass-aws-exam-first-try/">How To Pass AWS Exam First Try</a></li>
+<li><a href="https://www.examcert.app/blog/sap-c02-vs-saa-c03-which-first/">SAP-C02 vs SAA-C03 Which First</a></li>
+</ul>
+
+<h2>📝 Blog — Azure</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/ai-900-vs-dp-900-which-first/">AI-900 vs DP-900 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/az-104-vs-az-900-which-first/">AZ-104 vs AZ-900 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/az-204-vs-az-104-which-first/">AZ-204 vs AZ-104 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/az-204-vs-az-400-which-first/">AZ-204 vs AZ-400 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/az-305-vs-az-104-which-first/">AZ-305 vs AZ-104 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/az-500-vs-sc-200-which-first/">AZ-500 vs SC-200 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/azure-administrator-certification-path/">Azure Administrator Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-ai-102-complete-guide/">Azure AI-102 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-ai-900-complete-guide/">Azure AI-900 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-ai-certification-path/">Azure AI-Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-104-complete-guide/">Azure AZ-104 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-104-practice-questions-2026/">Azure AZ-104 Practice Questions 2026</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-120-complete-guide/">Azure AZ-120 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-140-complete-guide/">Azure AZ-140 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-204-complete-guide/">Azure AZ-204 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-220-complete-guide/">Azure AZ-220 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-305-complete-guide/">Azure AZ-305 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-400-complete-guide/">Azure AZ-400 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-400-devops-certification-path/">Azure AZ-400 Devops Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-500-complete-guide/">Azure AZ-500 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-500-practice-questions-2026/">Azure AZ-500 Practice Questions 2026</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-500-security-certification-path/">Azure AZ-500 Security Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-700-complete-guide/">Azure AZ-700 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-800-complete-guide/">Azure AZ-800 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-801-complete-guide/">Azure AZ-801 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-az-900-complete-guide/">Azure AZ-900 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-certification-renewal-guide/">Azure Certification Renewal Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-data-certification-path/">Azure Data Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-developer-certification-path/">Azure Developer Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-dp-100-complete-guide/">Azure DP-100 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-dp-100-vs-ai-102-which-first/">Azure DP-100 vs AI-102 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/azure-dp-203-complete-guide/">Azure DP-203 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-dp-300-complete-guide/">Azure DP-300 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-dp-420-complete-guide/">Azure DP-420 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-dp-900-complete-guide/">Azure DP-900 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-fundamentals-study-tips/">Azure Fundamentals Study Tips</a></li>
+<li><a href="https://www.examcert.app/blog/azure-ms-102-complete-guide/">Azure MS-102 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-ms-900-complete-guide/">Azure MS-900 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-network-engineer-certification-path/">Azure Network Engineer Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/azure-pl-300-complete-guide/">Azure PL-300 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-pl-400-complete-guide/">Azure PL-400 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-sc-100-complete-guide/">Azure SC-100 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-sc-200-complete-guide/">Azure SC-200 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-sc-300-complete-guide/">Azure SC-300 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-sc-400-complete-guide/">Azure SC-400 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/azure-solutions-architect-study-guide/">Azure Solutions Architect Study Guide</a></li>
+<li><a href="https://www.examcert.app/blog/best-azure-practice-exams-2026/">Best Azure Practice Exams 2026</a></li>
+<li><a href="https://www.examcert.app/blog/best-gcp-practice-exams-2026/">Best GCP Practice Exams 2026</a></li>
+<li><a href="https://www.examcert.app/blog/book-azure-certification-exam-australia/">Book Azure Certification Exam Australia</a></li>
+<li><a href="https://www.examcert.app/blog/dp-900-vs-az-900-which-first/">DP-900 vs AZ-900 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/dp-900-vs-dp-203-which-first/">DP-900 vs DP-203 Which First</a></li>
+<li><a href="https://www.examcert.app/blog/microsoft-dp-700-complete-guide/">Microsoft DP-700 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/sc-900-complete-guide/">SC-900 Complete Guide</a></li>
+</ul>
+
+<h2>📝 Blog — GCP</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/book-gcp-certification-exam-australia/">Book GCP Certification Exam Australia</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-ace-complete-guide/">GCP ACE Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-ace-vs-pca-which-first/">GCP ACE vs PCA Which First</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-associate-cloud-engineer-guide/">GCP Associate Cloud Engineer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-certification-study-tips/">GCP Certification Study Tips</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-cloud-developer-guide/">GCP Cloud Developer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-cloud-digital-leader-guide/">GCP Cloud Digital Leader Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-cloud-network-engineer-guide/">GCP Cloud Network Engineer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-cloud-security-engineer-guide/">GCP Cloud Security Engineer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-cse-certification-path/">GCP CSE Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-cse-study-tips/">GCP CSE Study Tips</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-data-engineer-certification-path/">GCP Data Engineer Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-machine-learning-engineer-guide/">GCP Machine Learning Engineer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-pca-complete-guide/">GCP PCA Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-pca-practice-test-2026/">GCP PCA Practice Test 2026</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-pde-complete-guide/">GCP PDE Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-professional-cloud-architect-guide/">GCP Professional Cloud Architect Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-professional-cloud-developer-guide/">GCP Professional Cloud Developer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/gcp-professional-data-engineer-guide/">GCP Professional Data Engineer Guide</a></li>
+</ul>
+
+<h2>📝 Blog — Security</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/casp-plus-complete-guide/">Casp Plus Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ccsk-cloud-security-knowledge-guide/">Ccsk Cloud Security Knowledge Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ccsp-certification-guide/">CCSP Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ccsp-cloud-security-certification-path/">CCSP Cloud Security Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/ceh-certified-ethical-hacker-guide/">CEH Certified Ethical Hacker Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ceh-ethical-hacker-certification-path/">CEH Ethical Hacker Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/ceh-v13-complete-guide/">CEH V13 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ceh-v13-practice-test-2026/">CEH V13 Practice Test 2026</a></li>
+<li><a href="https://www.examcert.app/blog/cisa-certification-guide/">CISA Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cisa-vs-cism-which-first/">CISA vs CISM Which First</a></li>
+<li><a href="https://www.examcert.app/blog/cism-certification-guide/">CISM Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cism-practice-test-2026/">CISM Practice Test 2026</a></li>
+<li><a href="https://www.examcert.app/blog/cissp-certification-path/">CISSP Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/cissp-complete-guide/">CISSP Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cissp-exam-questions-2026/">CISSP Exam Questions 2026</a></li>
+<li><a href="https://www.examcert.app/blog/cissp-practice-exam-2026/">CISSP Practice Exam 2026</a></li>
+<li><a href="https://www.examcert.app/blog/cissp-study-plan-2026/">CISSP Study Plan 2026</a></li>
+<li><a href="https://www.examcert.app/blog/cissp-vs-cism-which-first/">CISSP vs CISM Which First</a></li>
+<li><a href="https://www.examcert.app/blog/comptia-security-plus-guide/">Comptia Security Plus Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cysa-plus-complete-guide/">Cysa Plus Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/fortinet-nse4-complete-guide/">Fortinet Nse4 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/giac-gcih-certification-guide/">Giac Gcih Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/giac-gsec-certification-guide/">Giac Gsec Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/how-to-pass-cissp-first-attempt-2026/">How To Pass CISSP First Attempt 2026</a></li>
+<li><a href="https://www.examcert.app/blog/oscp-complete-guide/">Oscp Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/pcnsa-complete-guide/">Pcnsa Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/pentest-plus-complete-guide/">Pentest Plus Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/security-plus-vs-cissp/">Security Plus vs CISSP</a></li>
+</ul>
+
+<h2>📝 Blog — Career & Study Tips</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/active-recall-spaced-repetition-study/">Active Recall Spaced Repetition Study</a></li>
+<li><a href="https://www.examcert.app/blog/best-certifications-remote-work/">Best Certifications Remote Work</a></li>
+<li><a href="https://www.examcert.app/blog/build-it-certification-portfolio/">Build It Certification Portfolio</a></li>
+<li><a href="https://www.examcert.app/blog/cloud-architect-career-path/">Cloud Architect Career Path</a></li>
+<li><a href="https://www.examcert.app/blog/cloud-certification-cost-australia/">Cloud Certification Cost Australia</a></li>
+<li><a href="https://www.examcert.app/blog/cloud-certification-exam-anxiety-tips/">Cloud Certification Exam Anxiety Tips</a></li>
+<li><a href="https://www.examcert.app/blog/cloud-certification-roadmap-2025/">Cloud Certification Roadmap 2025</a></li>
+<li><a href="https://www.examcert.app/blog/cloud-certification-roadmap-australia-2026/">Cloud Certification Roadmap Australia 2026</a></li>
+<li><a href="https://www.examcert.app/blog/devops-certification-roadmap-2025/">Devops Certification Roadmap 2025</a></li>
+<li><a href="https://www.examcert.app/blog/entry-level-cloud-certifications/">Entry Level Cloud Certifications</a></li>
+<li><a href="https://www.examcert.app/blog/exam-day-tips-cloud-certification/">Exam Day Tips Cloud Certification</a></li>
+<li><a href="https://www.examcert.app/blog/free-certification-study-resources/">Free Certification Study Resources</a></li>
+<li><a href="https://www.examcert.app/blog/it-certification-roi-worth-investment/">It Certification Roi Worth Investment</a></li>
+<li><a href="https://www.examcert.app/blog/it-certification-salary-guide-2025/">It Certification Salary Guide 2025</a></li>
+<li><a href="https://www.examcert.app/blog/it-certification-study-tips/">It Certification Study Tips</a></li>
+<li><a href="https://www.examcert.app/blog/it-certification-tax-deductible-australia/">It Certification Tax Deductible Australia</a></li>
+<li><a href="https://www.examcert.app/blog/itil-4-study-tips-2026/">ITIL 4 Study Tips 2026</a></li>
+<li><a href="https://www.examcert.app/blog/multi-cloud-certification-strategy/">Multi Cloud Certification Strategy</a></li>
+<li><a href="https://www.examcert.app/blog/multi-cloud-strategy-2025/">Multi Cloud Strategy 2025</a></li>
+<li><a href="https://www.examcert.app/blog/online-proctoring-tips-certification-exams/">Online Proctoring Tips Certification Exams</a></li>
+<li><a href="https://www.examcert.app/blog/pearson-vue-online-proctoring-troubleshooting/">Pearson Vue Online Proctoring Troubleshooting</a></li>
+<li><a href="https://www.examcert.app/blog/pearson-vue-system-test-guide/">Pearson Vue System Test Guide</a></li>
+<li><a href="https://www.examcert.app/blog/pearson-vue-test-centres-brisbane/">Pearson Vue Test Centres Brisbane</a></li>
+<li><a href="https://www.examcert.app/blog/pearson-vue-test-centres-melbourne/">Pearson Vue Test Centres Melbourne</a></li>
+<li><a href="https://www.examcert.app/blog/pearson-vue-test-centres-sydney/">Pearson Vue Test Centres Sydney</a></li>
+<li><a href="https://www.examcert.app/blog/top-it-certifications-2025/">Top It Certifications 2025</a></li>
+<li><a href="https://www.examcert.app/blog/work-life-certification-balance/">Work Life Certification Balance</a></li>
+</ul>
+
+<h2>📝 Blog — Other Certifications</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/best-ccna-practice-tests-2026/">Best CCNA Practice Tests 2026</a></li>
+<li><a href="https://www.examcert.app/blog/capm-certification-guide/">Capm Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ccie-certification-guide/">Ccie Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ccna-exam-questions-what-to-expect-2026/">CCNA Exam Questions What To Expect 2026</a></li>
+<li><a href="https://www.examcert.app/blog/ccna-networking-certification-path/">CCNA Networking Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/ccna-practice-test-2026/">CCNA Practice Test 2026</a></li>
+<li><a href="https://www.examcert.app/blog/ccna-study-plan-pass-3-months/">CCNA Study Plan Pass 3 Months</a></li>
+<li><a href="https://www.examcert.app/blog/ccnp-certification-guide/">Ccnp Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cdpse-certification-guide/">Cdpse Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cisco-ccna-certification-guide/">Cisco CCNA Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cisco-devnet-200-901-guide/">Cisco Devnet 200 901 Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cisco-devnet-associate-guide/">Cisco Devnet Associate Guide</a></li>
+<li><a href="https://www.examcert.app/blog/cka-complete-guide/">Cka Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/ckad-complete-guide/">Ckad Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/comptia-a-plus-guide/">Comptia A Plus Guide</a></li>
+<li><a href="https://www.examcert.app/blog/comptia-cloud-plus-guide/">Comptia Cloud Plus Guide</a></li>
+<li><a href="https://www.examcert.app/blog/comptia-itf-plus-guide/">Comptia Itf Plus Guide</a></li>
+<li><a href="https://www.examcert.app/blog/comptia-linux-plus-guide/">Comptia Linux Plus Guide</a></li>
+<li><a href="https://www.examcert.app/blog/comptia-network-plus-guide/">Comptia Network Plus Guide</a></li>
+<li><a href="https://www.examcert.app/blog/csm-scrum-master-guide/">Csm Scrum Master Guide</a></li>
+<li><a href="https://www.examcert.app/blog/databricks-complete-guide/">Databricks Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/docker-certified-associate-guide/">Docker Certified Associate Guide</a></li>
+<li><a href="https://www.examcert.app/blog/docker-container-certification-path/">Docker Container Certification Path</a></li>
+<li><a href="https://www.examcert.app/blog/docker-dca-complete-guide/">Docker DCA Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/dynamics-365-fundamentals-guide/">Dynamics 365 Fundamentals Guide</a></li>
+<li><a href="https://www.examcert.app/blog/finops-complete-guide/">Finops Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/how-to-pass-oci-1z0-1127-first-try/">How To Pass OCI 1Z0 1127 First Try</a></li>
+<li><a href="https://www.examcert.app/blog/istqb-complete-guide/">Istqb Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/itil-4-exam-prep-guide/">ITIL 4 Exam Prep Guide</a></li>
+<li><a href="https://www.examcert.app/blog/itil-4-foundation-guide/">ITIL 4 Foundation Guide</a></li>
+<li><a href="https://www.examcert.app/blog/itil-5-digital-experience-guide/">ITIL 5 Digital Experience Guide</a></li>
+<li><a href="https://www.examcert.app/blog/jncia-complete-guide/">Jncia Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/kubernetes-certifications-guide/">Kubernetes Certifications Guide</a></li>
+<li><a href="https://www.examcert.app/blog/kubernetes-cka-vs-ckad/">Kubernetes Cka vs Ckad</a></li>
+<li><a href="https://www.examcert.app/blog/lpic-1-complete-guide/">Lpic 1 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/microsoft-office-specialist-guide/">Microsoft Office Specialist Guide</a></li>
+<li><a href="https://www.examcert.app/blog/mulesoft-developer-certification-guide/">Mulesoft Developer Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/nca-aiio-complete-guide/">NCA AIIO Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/nca-aiio-exam-preparation/">NCA AIIO Exam Preparation</a></li>
+<li><a href="https://www.examcert.app/blog/new-pmp-exam-july-2026/">New PMP Exam July 2026</a></li>
+<li><a href="https://www.examcert.app/blog/nutanix-complete-guide/">Nutanix Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/oci-1z0-1127-complete-guide/">OCI 1Z0 1127 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/oci-complete-guide/">OCI Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/oracle-oci-foundations-guide/">Oracle OCI Foundations Guide</a></li>
+<li><a href="https://www.examcert.app/blog/oracle-ocp-certification-guide/">Oracle Ocp Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/pmp-certification-guide/">PMP Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/pmp-new-exam-july-2026/">PMP New Exam July 2026</a></li>
+<li><a href="https://www.examcert.app/blog/pmp-practice-questions-2026/">PMP Practice Questions 2026</a></li>
+<li><a href="https://www.examcert.app/blog/pmp-vs-capm-which-first/">PMP vs Capm Which First</a></li>
+<li><a href="https://www.examcert.app/blog/power-platform-fundamentals-guide/">Power Platform Fundamentals Guide</a></li>
+<li><a href="https://www.examcert.app/blog/prince2-complete-guide/">Prince2 Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/psm-i-complete-guide/">Psm I Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/rhce-complete-guide/">Rhce Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/rhcsa-certification-guide/">Rhcsa Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/salesforce-admin-certification-guide/">Salesforce Admin Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/salesforce-platform-developer-guide/">Salesforce Platform Developer Guide</a></li>
+<li><a href="https://www.examcert.app/blog/sap-certification-guide/">Sap Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/servicenow-csa-certification-guide/">Servicenow Csa Certification Guide</a></li>
+<li><a href="https://www.examcert.app/blog/snowflake-snowpro-core-guide/">Snowflake Snowpro Core Guide</a></li>
+<li><a href="https://www.examcert.app/blog/splunk-core-certified-user-guide/">Splunk Core Certified User Guide</a></li>
+<li><a href="https://www.examcert.app/blog/tableau-desktop-foundations-guide/">Tableau Desktop Foundations Guide</a></li>
+<li><a href="https://www.examcert.app/blog/terraform-associate-guide/">Terraform Associate Guide</a></li>
+<li><a href="https://www.examcert.app/blog/togaf-complete-guide/">Togaf Complete Guide</a></li>
+<li><a href="https://www.examcert.app/blog/vault-associate-guide/">Vault Associate Guide</a></li>
+<li><a href="https://www.examcert.app/blog/vmware-vcp-dcv-guide/">Vmware Vcp Dcv Guide</a></li>
+</ul>
+
+<h2>📂 Blog Categories</h2>
+<ul>
+<li><a href="https://www.examcert.app/blog/category/aws/">Aws</a></li>
+<li><a href="https://www.examcert.app/blog/category/azure/">Azure</a></li>
+<li><a href="https://www.examcert.app/blog/category/career/">Career</a></li>
+<li><a href="https://www.examcert.app/blog/category/enterprise/">Enterprise</a></li>
+<li><a href="https://www.examcert.app/blog/category/gcp/">Gcp</a></li>
+<li><a href="https://www.examcert.app/blog/category/security/">Security</a></li>
+</ul>
+
+</div>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p>358 pages indexed • All links to <a href="https://www.examcert.app/">examcert.app</a></p>
+</div>
 </body>
 </html>
