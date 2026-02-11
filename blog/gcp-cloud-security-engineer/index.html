@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCP Professional Cloud Security Engineer: What Each Domain Actually Tests — ExamCert Blog</title>
+<meta name="description" content="Domain-by-domain breakdown of the GCP Professional Cloud Security Engineer exam from someone who just passed.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examcert.github.io/blog/gcp-cloud-security-engineer/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+h3{color:#93c5fd;font-size:1.15rem;margin:20px 0 8px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>GCP Professional Cloud Security Engineer: What Each Domain Actually Tests (From Someone Who Just Passed)</h1>
+<div class="meta">Published February 12, 2026 · 5 min read</div>
+
+<p>I passed the GCP Professional Cloud Security Engineer two weeks ago. Scored in the "strong pass" range, which Google annoyingly doesn't give you an exact number for. But I know where I crushed it and where I barely survived, because the score report breaks down by domain.</p>
+
+<p>Here's what each domain <em>actually</em> tests — not what the official exam guide says, but what showed up on my exam.</p>
+
+<h2>Domain 1: Configuring Access (about 25%)</h2>
+
+<p><strong>What Google says:</strong> "Configure Cloud IAM, manage service accounts, configure organization policies."</p>
+
+<p><strong>What they actually test:</strong> The nuances of IAM that trip up experienced GCP users. Specifically:</p>
+
+<ul>
+<li><strong>IAM inheritance and deny policies.</strong> If you grant Editor at the org level and deny a specific permission at the project level, what happens? (The deny wins, but only if the deny policy is correctly configured with the right principals.)</li>
+<li><strong>Service account impersonation chains.</strong> Service Account A impersonates Service Account B, which has access to BigQuery. What permissions does A need? Not BigQuery access — it needs <code>roles/iam.serviceAccountTokenCreator</code> on B. The exam loves these chains.</li>
+<li><strong>Workload Identity Federation.</strong> Connecting external identity providers (AWS, Azure AD, on-prem OIDC) to GCP without service account keys. This is newer material and came up 3-4 times on my exam.</li>
+<li><strong>Organization Policy constraints.</strong> Which constraints block external sharing, restrict resource locations, or disable service account key creation. Know the common constraint names.</li>
+</ul>
+
+<p><strong>My score: Strong.</strong> IAM is my day job. If you don't do GCP IAM daily, budget extra study time here.</p>
+
+<h2>Domain 2: Managing Network Security (about 20%)</h2>
+
+<p><strong>What Google says:</strong> "Design network architecture for security, configure VPC Service Controls, design firewall rules."</p>
+
+<p><strong>What they actually test:</strong></p>
+
+<ul>
+<li><strong>VPC Service Controls</strong> dominate this domain. Creating service perimeters, configuring access levels, understanding ingress/egress rules, and bridging perimeters. If you haven't used VPC-SC in production, the exam will be rough.</li>
+<li><strong>Private Google Access vs Private Service Connect vs Private Service Endpoints.</strong> Three different things that sound similar. Know when to use each.</li>
+<li><strong>Hierarchical firewall policies</strong> vs VPC firewall rules. Priority ordering, inheritance, and how they interact.</li>
+<li><strong>Cloud Armor</strong> — WAF rules, DDoS protection, adaptive protection. Less depth here than I expected, but still 2-3 questions.</li>
+</ul>
+
+<p><strong>My score: Moderate.</strong> VPC Service Controls tripped me up. I'd used them but hadn't configured the edge cases the exam tested.</p>
+
+<h2>Domain 3: Ensuring Data Protection (about 20%)</h2>
+
+<p><strong>What Google says:</strong> "Configure DLP, manage encryption, design for data security."</p>
+
+<p><strong>What they actually test:</strong></p>
+
+<ul>
+<li><strong>Customer-Managed Encryption Keys (CMEK) vs Customer-Supplied Encryption Keys (CSEK).</strong> When to use each, how key rotation works, what happens if a key is destroyed. The exam had at least 4 questions on this.</li>
+<li><strong>Cloud DLP</strong> — identifying and redacting sensitive data, de-identification techniques (tokenization, bucketing, masking). Know the difference between inspection and de-identification.</li>
+<li><strong>Secret Manager</strong> — storing and rotating secrets, IAM for secret access, automatic rotation with Cloud Functions.</li>
+<li><strong>Data residency</strong> — organization policies that restrict resource locations, implications for data sovereignty requirements.</li>
+</ul>
+
+<p><strong>My score: Strong.</strong> This domain is the most straightforward if you've dealt with compliance requirements. Lots of "which encryption option meets this requirement" questions.</p>
+
+<h2>Domain 4: Managing Operations (about 20%)</h2>
+
+<p><strong>What Google says:</strong> "Monitor security, detect threats, manage incident response."</p>
+
+<p><strong>What they actually test:</strong></p>
+
+<ul>
+<li><strong>Security Command Center (SCC)</strong> — Premium vs Standard tier, security findings, vulnerability scanning, compliance reporting. Know what SCC can and can't detect.</li>
+<li><strong>Chronicle SIEM</strong> — log ingestion, detection rules (YARA-L), investigation workflows. This is Google's SIEM product and it's increasingly prominent on the exam.</li>
+<li><strong>Cloud Audit Logs</strong> — admin activity vs data access vs system event logs. Which are always on, which need to be enabled, and how to route them to BigQuery or Pub/Sub.</li>
+<li><strong>Binary Authorization</strong> — enforcing trusted container images in GKE. Know how attestations work and how to configure policies.</li>
+</ul>
+
+<p><strong>My score: Weak.</strong> Chronicle caught me off guard. My study materials barely mentioned it, but I had 3-4 questions specifically about Chronicle detection rules and investigation.</p>
+
+<h2>Domain 5: Supporting Compliance (about 15%)</h2>
+
+<p><strong>What Google says:</strong> "Determine regulatory requirements, design for compliance."</p>
+
+<p><strong>What they actually test:</strong></p>
+
+<ul>
+<li><strong>Assured Workloads</strong> — creating compliant environments for FedRAMP, HIPAA, etc. The exam tests whether you know which compliance frameworks are supported and what restrictions Assured Workloads imposes.</li>
+<li><strong>Access Transparency and Access Approval</strong> — understanding when Google personnel access your data and how to approve/deny those accesses.</li>
+<li><strong>Organization policies for compliance</strong> — combining policies to enforce data residency, prevent external sharing, and restrict service usage.</li>
+</ul>
+
+<p><strong>My score: Moderate.</strong> Fewer questions here, but they're specific. If you haven't worked in a regulated environment, these concepts might be unfamiliar.</p>
+
+<h2>What I'd Do Differently</h2>
+
+<ol>
+<li><strong>Spend 30% of study time on VPC Service Controls.</strong> I spent about 10%. That was a mistake.</li>
+<li><strong>Learn Chronicle.</strong> Google is pushing hard to integrate Chronicle into the security certification. Even basic familiarity with detection rules would've helped me.</li>
+<li><strong>Use practice exams earlier.</strong> I studied for 6 weeks before touching practice questions. Should've started in week 2 to identify gaps. <a href="https://www.examcert.app/exams/gcp-cse/">ExamCert's GCP security engineer practice tests</a> were the closest to the real exam format I found.</li>
+</ol>
+
+<h2>Study Resources That Actually Helped</h2>
+
+<ul>
+<li>Google Cloud Skills Boost security courses (free tier)</li>
+<li>The official exam guide's linked documentation (read every link)</li>
+<li><a href="https://www.examcert.app/exams/gcp-cse/">ExamCert</a> for domain-specific practice questions</li>
+<li>Google's security best practices whitepapers</li>
+</ul>
+
+<h2>Should You Take It?</h2>
+
+<p>If you work with GCP and care about security, yes. The cert is respected, the knowledge is practical, and GCP security engineers are in high demand.</p>
+
+<p>Budget 8-12 weeks. Don't underestimate it because you're "already good at security" — GCP-specific implementation details are what the exam tests, not generic security knowledge.</p>
+
+<p>Grab the <a href="https://www.examcert.app/exams/gcp-cse/">free GCP cloud security practice exam</a> and let your score tell you how ready you are. Honest self-assessment beats guesswork every time.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/gcp-cse/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+</div>
+</body>
+</html>
