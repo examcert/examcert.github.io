@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Professional Data Engineer: The Cert That Proves You're Not Just a SQL Person — ExamCert Blog</title>
+<meta name="description" content="GCP Professional Data Engineer certification study guide 2026. BigQuery deep dive, service matching strategies, and a 6-week study plan.">
+<link rel="canonical" href="https://examcert.github.io/blog/gcp-pde-study-guide/">
+<meta property="og:title" content="Google Professional Data Engineer: The Cert That Proves You're Not Just a SQL Person">
+<meta property="og:url" content="https://examcert.github.io/blog/gcp-pde-study-guide/">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+code{background:#1e293b;padding:2px 6px;border-radius:3px;font-size:0.9em}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>Google Professional Data Engineer: The Cert That Proves You're Not Just a SQL Person</h1>
+<div class="meta">Published February 13, 2026 · 8 min read</div>
+
+<p>There's a weird stigma in the data world. If you work mostly with SQL, people assume you're "just" a data analyst. You can build pipelines, design schemas, optimize queries that run 100x faster — but without the right signaling, you're still "the SQL person."</p>
+
+<p>The GCP Professional Data Engineer certification fixes that. Not because it teaches you anything revolutionary, but because it forces you to demonstrate breadth across the entire data engineering stack. And in 2026, that breadth is exactly what hiring managers are filtering for.</p>
+
+<h2>What the GCP PDE Actually Covers</h2>
+
+<p>The exam has four domains, and they're all weighted roughly equally:</p>
+
+<p><strong>1. Designing data processing systems (25%)</strong></p>
+<ul>
+<li>Choosing between batch and streaming</li>
+<li>Designing for reliability, scalability, cost</li>
+<li>BigQuery vs Dataflow vs Dataproc: when to use each</li>
+</ul>
+
+<p><strong>2. Ingesting and processing data (25%)</strong></p>
+<ul>
+<li>Pub/Sub for streaming ingestion</li>
+<li>Dataflow (Apache Beam) for transformations</li>
+<li>Cloud Composer (Airflow) for orchestration</li>
+<li>Dataproc (Spark/Hadoop) for large-scale batch</li>
+</ul>
+
+<p><strong>3. Storing data (25%)</strong></p>
+<ul>
+<li>BigQuery (the star of the show)</li>
+<li>Cloud Storage tiers</li>
+<li>Bigtable for high-throughput NoSQL</li>
+<li>Cloud SQL and Spanner for relational</li>
+</ul>
+
+<p><strong>4. Preparing and using data for analysis (25%)</strong></p>
+<ul>
+<li>Data governance and Dataplex</li>
+<li>ML integration (BigQuery ML, Vertex AI basics)</li>
+<li>Data quality, lineage, and cataloging</li>
+</ul>
+
+<h2>The BigQuery Problem</h2>
+
+<p>Here's what nobody tells you about this exam: it's secretly a BigQuery certification.</p>
+
+<p>I'd estimate 30-40% of all questions involve BigQuery in some capacity. Partitioning, clustering, materialized views, streaming inserts, nested/repeated fields, authorized views, slot reservations — you need to know BigQuery at an advanced level.</p>
+
+<p>If you've never used BigQuery, start there. Seriously. Before you read a single page of study material, go to the BigQuery sandbox (it's free) and run queries. Create partitioned tables. Experiment with clustering columns. Understand what a slot is and why reservation matters.</p>
+
+<h2>The Services Matching Game</h2>
+
+<p>Most exam questions follow this pattern: "Company X has Y data problem. Which combination of GCP services should they use?"</p>
+
+<p>Here's my mental model:</p>
+
+<p><strong>Data arrives in real-time?</strong> → Pub/Sub → Dataflow → BigQuery (streaming insert)<br>
+<strong>Data arrives in batches daily?</strong> → Cloud Storage → Dataflow or Dataproc → BigQuery (load job)<br>
+<strong>Need orchestration?</strong> → Cloud Composer<br>
+<strong>Need low-latency key-value lookups?</strong> → Bigtable<br>
+<strong>Need global relational database?</strong> → Cloud Spanner<br>
+<strong>Need managed MySQL/Postgres?</strong> → Cloud SQL<br>
+<strong>Need machine learning on structured data?</strong> → BigQuery ML<br>
+<strong>Need custom ML models?</strong> → Vertex AI</p>
+
+<p>Memorize these patterns and you'll handle ~60% of scenario questions without deep thinking.</p>
+
+<h2>What Surprised Me on Exam Day</h2>
+
+<p>Three things I didn't expect:</p>
+
+<p><strong>1. IAM and security questions.</strong> Multiple questions about data access controls, VPC Service Controls, column-level security in BigQuery, and encryption at rest vs in transit.</p>
+
+<p><strong>2. Migration scenarios.</strong> "Company has an on-prem Hadoop cluster. How do you migrate?" Dataproc is the answer, but the exam wants you to think about data transfer and compatibility.</p>
+
+<p><strong>3. Cost optimization.</strong> Several questions asked "which approach is most cost-effective?" You need to understand BigQuery pricing, Dataflow pricing, and storage tier economics.</p>
+
+<h2>My 6-Week Study Plan</h2>
+
+<p><strong>Weeks 1-2:</strong> Core services deep dive (BigQuery 50% of your time)<br>
+<strong>Weeks 3-4:</strong> Supporting services (Bigtable, Spanner, Cloud SQL, Composer, Dataproc)<br>
+<strong>Week 5:</strong> <a href="https://www.examcert.app/exams/gcp-pde/">GCP PDE practice exam on ExamCert</a> — 50+ questions daily<br>
+<strong>Week 6:</strong> Weak areas + full practice exams</p>
+
+<h2>Resources That Helped Most</h2>
+
+<ol>
+<li><strong>Google Cloud Skills Boost</strong> — free labs with real GCP environments</li>
+<li><strong><a href="https://www.examcert.app/exams/gcp-pde/">ExamCert's GCP PDE practice test</a></strong> — scenario-based questions that match the real format</li>
+<li><strong>Official Google Cloud documentation</strong> — especially BigQuery best practices</li>
+<li><strong>Dan Sullivan's study guide</strong> — still relevant for the overall framework</li>
+</ol>
+
+<p>The GCP PDE isn't easy. But it's fair. If you understand the services and can think through data architecture decisions, you'll pass. And you'll stop being "just the SQL person."</p>
+
+<p>Start with <a href="https://www.examcert.app/exams/gcp-pde/">ExamCert</a> to benchmark yourself. Then build your plan around the gaps.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/gcp-pde/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
