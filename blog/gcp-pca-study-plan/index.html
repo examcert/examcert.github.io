@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Exact 8-Week Study Plan That Got Me Through the GCP Professional Cloud Architect — ExamCert Blog</title>
+<meta name="description" content="Week-by-week GCP Professional Cloud Architect study plan from someone who passed on the first attempt with 82%.">
+<meta name="keywords" content="GCP PCA, Google Cloud Architect, certification study plan, ExamCert, practice exams">
+<meta name="author" content="ExamCert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examcert.github.io/blog/gcp-pca-study-plan/">
+<meta property="og:title" content="The Exact 8-Week Study Plan That Got Me Through the GCP Professional Cloud Architect">
+<meta property="og:description" content="Week-by-week GCP PCA study plan from someone who passed first attempt.">
+<meta property="og:url" content="https://examcert.github.io/blog/gcp-pca-study-plan/">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+h3{color:#93c5fd;font-size:1.15rem;margin:20px 0 8px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+a:hover{color:#5a9922}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+blockquote{border-left:3px solid #75c32c;padding:10px 20px;margin:20px 0;color:#94a3b8;background:#0f172a;border-radius:0 6px 6px 0}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+.back:hover{color:#93c5fd}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #1e293b;padding:8px 12px;text-align:left;color:#cbd5e1}
+th{background:#0f172a;color:#60a5fa}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>The Exact 8-Week Study Plan That Got Me Through the GCP Professional Cloud Architect</h1>
+<div class="meta">Published February 16, 2026 · 8 min read</div>
+
+<p>The Google Professional Cloud Architect (PCA) is widely considered the most prestigious cloud certification in the GCP ecosystem. It's also one of the hardest — not because the concepts are impossible, but because Google tests your ability to architect real solutions across the entire GCP platform.</p>
+
+<p>I passed it two months ago on my first attempt. Score: 82%. Here's the exact study plan I followed, week by week.</p>
+
+<h2>The Exam at a Glance</h2>
+<ul>
+<li>50 questions, 2 hours</li>
+<li>Cost: $200</li>
+<li>No official passing score published (community consensus: ~72-75%)</li>
+<li>Case studies: 2-3 business scenarios you reference throughout the exam</li>
+<li>Recertification: every 2 years</li>
+</ul>
+
+<p>The case studies are unique to GCP certs. You'll get a multi-page description of a fictional company — their current architecture, business requirements, and technical requirements. Multiple questions will reference this case study, asking you to design solutions for that specific company.</p>
+
+<h2>Week 1: Foundation + Case Studies</h2>
+<p><strong>Goal:</strong> Understand the exam structure and memorize the case studies.</p>
+<p>Google publishes the case studies in advance. As of 2026, there are four: Mountkirk Games (scaling game backend), TerramEarth (IoT data processing), Dress4Win (lift-and-shift migration), and Helicopter Racing League (real-time data analytics).</p>
+<p>Read each one three times. Understand their business drivers, technical constraints, and what they value. Many exam questions reference these by name.</p>
+
+<h2>Week 2: Compute and Networking</h2>
+<p><strong>Focus:</strong> Compute Engine, GKE, Cloud Run, Cloud Functions, App Engine. When to use each.</p>
+<p><strong>Key insight:</strong> The PCA loves asking "which compute option is best for this scenario?" Learn the decision tree:</p>
+<ul>
+<li>Long-running VMs → Compute Engine</li>
+<li>Container orchestration → GKE</li>
+<li>Stateless containers → Cloud Run</li>
+<li>Event-driven functions → Cloud Functions</li>
+<li>Legacy web apps → App Engine</li>
+</ul>
+
+<h2>Week 3: Data and Storage</h2>
+<p><strong>Focus:</strong> BigQuery, Cloud SQL, Spanner, Firestore, Bigtable, Cloud Storage.</p>
+<table>
+<tr><th>Need</th><th>Service</th></tr>
+<tr><td>Analytics/data warehouse</td><td>BigQuery</td></tr>
+<tr><td>Relational, single-region</td><td>Cloud SQL</td></tr>
+<tr><td>Relational, global, strongly consistent</td><td>Spanner</td></tr>
+<tr><td>Document/mobile backend</td><td>Firestore</td></tr>
+<tr><td>Wide-column, high throughput</td><td>Bigtable</td></tr>
+<tr><td>Object storage</td><td>Cloud Storage</td></tr>
+</table>
+<p>Know BigQuery deeply: partitioning, clustering, materialized views, streaming inserts vs batch loads, costs. BigQuery is Google's crown jewel and the exam reflects that.</p>
+
+<h2>Week 4: Security and IAM</h2>
+<p><strong>Focus:</strong> IAM roles (basic, predefined, custom), service accounts, organization policies, VPC Service Controls, Cloud KMS, Secret Manager.</p>
+<p><strong>Critical concept:</strong> Principle of least privilege. Every security question has one answer that gives too many permissions and one that gives just enough. Always pick "just enough."</p>
+
+<h2>Week 5: Operations and Migration</h2>
+<p><strong>Focus:</strong> Cloud Monitoring, Cloud Logging, Error Reporting, Cloud Trace. SLOs, SLIs, error budgets.</p>
+<p>Google loves asking about migration strategies for the case study companies. Know the tools AND the strategy.</p>
+
+<h2>Week 6: AI/ML and Specialized Services</h2>
+<p><strong>Focus:</strong> Vertex AI, AutoML, pre-trained APIs (Vision, Speech, NLP, Translation). When to build custom vs use pre-trained.</p>
+<p>Also: Pub/Sub for messaging, Dataflow for stream/batch processing, Dataproc for Hadoop/Spark workloads.</p>
+
+<h2>Week 7: Practice Exams (Heavy)</h2>
+<p>This is the most important week. Take at least 4 full-length practice exams:</p>
+<ol>
+<li>Google's official practice exam (free)</li>
+<li><a href="https://www.examcert.app/exams/gcp-pca/">ExamCert's GCP PCA practice test</a> — best value at $4.99 lifetime</li>
+<li>Repeat, review, repeat</li>
+</ol>
+<p>For every wrong answer, write down WHY you got it wrong. I kept a "wrong answer journal" — by the end of the week, my error rate dropped from 30% to 12%.</p>
+
+<h2>Week 8: Review and Exam Day</h2>
+<p>Re-read the case studies. Review your wrong answer journal. Take one final practice exam. If you're scoring 78%+ consistently, you're ready.</p>
+<p><strong>Exam day tips:</strong></p>
+<ul>
+<li>Read case study questions carefully — the answer depends on that SPECIFIC company's requirements</li>
+<li>Eliminate obviously wrong answers first, then reason between the remaining two</li>
+<li>Time management: 2.4 minutes per question. Flag hard ones and come back</li>
+<li>If stuck between two answers, pick the one that's more "Google native"</li>
+</ul>
+
+<h2>Cost Summary</h2>
+<ul>
+<li>Exam: $200</li>
+<li>Study materials: $0-50 (Google's free learning paths are excellent)</li>
+<li>Practice exams: <a href="https://www.examcert.app/exams/gcp-pca/">ExamCert</a> — $4.99 with money-back guarantee</li>
+<li><strong>Total: ~$255</strong></li>
+</ul>
+
+<p>The GCP PCA is worth it. Google Cloud is growing fast, GCP architects are in demand, and the cert carries weight. Follow this plan, <a href="https://www.examcert.app/exams/gcp-pca/">practice consistently</a>, and you'll pass.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/gcp-pca/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
