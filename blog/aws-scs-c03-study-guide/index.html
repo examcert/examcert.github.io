@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Asked 5 Security Engineers How They Passed AWS SCS-C03 — ExamCert Blog</title>
+<meta name="description" content="Real advice from 5 security engineers who passed the AWS Security Specialty SCS-C03 exam.">
+<link rel="canonical" href="https://examcert.github.io/blog/aws-scs-c03-study-guide/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+blockquote{border-left:3px solid #75c32c;padding:10px 20px;margin:20px 0;color:#94a3b8;background:#0f172a;border-radius:0 6px 6px 0}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>I Asked 5 Security Engineers How They Passed AWS SCS-C03. Every Answer Surprised Me.</h1>
+<div class="meta">Published February 23, 2026 · 6 min read</div>
+
+<p>Last month, I messaged five security engineers who recently passed the AWS Security Specialty (SCS-C03). Different companies, different backgrounds, different study approaches. Their answers were eerily consistent.</p>
+
+<h2>"The Hardest Part Wasn't Security. It Was AWS."</h2>
+
+<p>Four out of five engineers said the hard part isn't understanding security concepts. It's understanding how security concepts map to AWS-specific services.</p>
+
+<blockquote><strong>Marcus, Security Architect:</strong> "The exam doesn't ask 'what is least privilege?' It asks 'Given this IAM policy JSON, what access does this role have to this S3 bucket with this bucket policy and this SCP attached?'"</blockquote>
+
+<blockquote><strong>Priya, Cloud Security Engineer:</strong> "KMS. The whole exam feels like a KMS exam. CMKs, key policies, grants, cross-account key sharing, automatic vs manual rotation."</blockquote>
+
+<h2>"Hands-On Beat Everything Else"</h2>
+
+<p>Every engineer said hands-on labs were more valuable than video courses.</p>
+
+<blockquote><strong>James:</strong> "I spent two weeks building a secure AWS environment from scratch. VPC with private subnets, GuardDuty, Security Hub, Config rules, CloudTrail with log file validation, KMS encryption on everything."</blockquote>
+
+<blockquote><strong>David:</strong> "I used <a href="https://www.examcert.app/exams/aws-scs-c03/">ExamCert's SCS-C03 practice exam</a> and treated every wrong answer as a 30-minute study session."</blockquote>
+
+<h2>The Three Services You Must Know Cold</h2>
+
+<p>All five independently named:</p>
+
+<ol>
+<li><strong>AWS KMS</strong> — Key hierarchies, envelope encryption, key policies, grants, cross-account sharing, rotation</li>
+<li><strong>AWS CloudTrail</strong> — Management vs data events, multi-region trails, log file integrity validation</li>
+<li><strong>AWS IAM</strong> — Policy evaluation logic (explicit deny → SCPs → resource policies → identity policies → permission boundaries)</li>
+</ol>
+
+<h2>Study Timeline Consensus</h2>
+
+<p>Average: 8 weeks. Recommended approach:</p>
+
+<ul>
+<li><strong>Weeks 1-2:</strong> Exam guide + initial practice test + core services (KMS, CloudTrail, IAM)</li>
+<li><strong>Weeks 3-5:</strong> Build a secure AWS environment</li>
+<li><strong>Weeks 6-7:</strong> Practice questions — <a href="https://www.examcert.app/exams/aws-scs-c03/">SCS-C03 practice tests on ExamCert</a> — $4.99 lifetime access with money-back guarantee</li>
+<li><strong>Week 8:</strong> Review weak areas, pass two practice tests at 80%+</li>
+</ul>
+
+<h2>The Bottom Line</h2>
+
+<p>Build things. Break things. Fix them. Then take practice questions until you're scoring 80%+ consistently.</p>
+
+<p><a href="https://www.examcert.app/exams/aws-scs-c03/">Take a free AWS SCS-C03 practice test</a> and find out which domains need work. Full question bank on <a href="https://www.examcert.app/exams/aws-scs-c03/">ExamCert</a> for $4.99.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/aws-scs-c03/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
