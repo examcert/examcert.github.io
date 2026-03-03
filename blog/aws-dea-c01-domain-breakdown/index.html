@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS DEA-C01: What Each Domain Actually Tests (Not What AWS Says) — ExamCert Blog</title>
+<meta name="description" content="Honest breakdown of all 4 AWS DEA-C01 exam domains. What AWS doesn't tell you about Data Engineer Associate questions.">
+<meta name="keywords" content="AWS DEA-C01, AWS Data Engineer Associate, DEA-C01 domains, DEA-C01 study guide, ExamCert, practice exams">
+<meta name="author" content="ExamCert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examcert.github.io/blog/aws-dea-c01-domain-breakdown/">
+<meta property="og:title" content="AWS DEA-C01: What Each Domain Actually Tests (Not What AWS Says)">
+<meta property="og:description" content="Honest breakdown of all 4 AWS DEA-C01 exam domains. What AWS doesn't tell you about Data Engineer Associate questions.">
+<meta property="og:url" content="https://examcert.github.io/blog/aws-dea-c01-domain-breakdown/">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+h3{color:#93c5fd;font-size:1.15rem;margin:20px 0 8px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+a:hover{color:#5a9922}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+blockquote{border-left:3px solid #75c32c;padding:10px 20px;margin:20px 0;color:#94a3b8;background:#0f172a;border-radius:0 6px 6px 0}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+.back:hover{color:#93c5fd}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>AWS DEA-C01: What Each Domain Actually Tests (Not What AWS Says)</h1>
+<div class="meta">Published March 4, 2026 · 5 min read</div>
+
+<p>AWS describes the Data Engineer Associate (DEA-C01) exam with nice, clean domain descriptions. Here's what they DON'T tell you about what each domain actually tests.</p>
+
+<h2>Domain 1: Data Ingestion and Transformation (34%)</h2>
+
+<p><strong>What AWS says:</strong> "Design and implement data ingestion solutions" and "develop data transformation solutions."</p>
+
+<p><strong>What it actually tests:</strong></p>
+
+<p>This domain is one-third of the exam and it's ALL about knowing when to use which service for data movement.</p>
+
+<p>The big decision tree you need in your head:</p>
+
+<ul>
+<li><strong>Real-time streaming?</strong> → Kinesis Data Streams or MSK (Managed Kafka)</li>
+<li><strong>Near real-time ETL?</strong> → Kinesis Data Firehose</li>
+<li><strong>Batch ETL?</strong> → AWS Glue</li>
+<li><strong>Large-scale data migration?</strong> → DataSync, Snow Family, DMS</li>
+<li><strong>Database replication?</strong> → DMS with CDC (Change Data Capture)</li>
+</ul>
+
+<p>The tricky questions pair two services that BOTH work but one is more appropriate. Example: "You need to ingest clickstream data with sub-second latency." Both Kinesis Data Streams and MSK work. The answer depends on: does the scenario mention existing Kafka expertise? If yes → MSK. If no → Kinesis (because it's fully managed and simpler).</p>
+
+<p><strong>Glue is EVERYWHERE.</strong> Know Glue ETL, Glue Crawlers, Glue Data Catalog, Glue Studio, Glue Streaming ETL. If you know Glue cold, you've got 15-20% of the exam locked down.</p>
+
+<h2>Domain 2: Data Store Management (26%)</h2>
+
+<p><strong>What AWS says:</strong> "Choose appropriate data stores" and "manage data lifecycle."</p>
+
+<p><strong>What it actually tests:</strong></p>
+
+<p>This is the "which database?" domain. AWS has like 15 database services and you need to know the right one for every scenario.</p>
+
+<p>Quick decision tree:</p>
+
+<ul>
+<li><strong>Relational + SQL?</strong> → RDS or Aurora</li>
+<li><strong>Key-value with microsecond latency?</strong> → DynamoDB</li>
+<li><strong>Document store?</strong> → DocumentDB</li>
+<li><strong>Graph data?</strong> → Neptune</li>
+<li><strong>Data warehouse / analytics?</strong> → Redshift</li>
+<li><strong>Time series?</strong> → Timestream</li>
+<li><strong>Caching?</strong> → ElastiCache (Redis or Memcached)</li>
+</ul>
+
+<p>But the real test is understanding S3 storage classes and lifecycle policies. Questions like: "Data is accessed frequently for 30 days, occasionally for 90 days, then must be retained for 7 years." You need to design a lifecycle policy: S3 Standard → S3 IA → Glacier Deep Archive.</p>
+
+<p>Also know: Lake Formation, data partitioning strategies in S3 (by date, by region), and Redshift Spectrum for querying S3 data directly.</p>
+
+<h2>Domain 3: Data Operations and Support (22%)</h2>
+
+<p><strong>What AWS says:</strong> "Automate data processing" and "ensure data quality."</p>
+
+<p><strong>What it actually tests:</strong></p>
+
+<p>Pipelines and monitoring. Specifically:</p>
+
+<ul>
+<li><strong>Step Functions</strong> for orchestrating multi-step data pipelines</li>
+<li><strong>MWAA (Managed Apache Airflow)</strong> for complex DAG-based workflows</li>
+<li><strong>EventBridge</strong> for triggering pipelines on events</li>
+<li><strong>CloudWatch</strong> for monitoring with custom metrics and alarms</li>
+</ul>
+
+<p>The exam loves asking: "A data pipeline fails at 3 AM. How do you detect and respond?" The answer always involves CloudWatch Alarms + SNS notifications + Lambda for auto-remediation.</p>
+
+<p>Data quality questions focus on Glue Data Quality (new-ish feature), data validation rules, and how to handle schema evolution in your data lake.</p>
+
+<h2>Domain 4: Data Security and Governance (18%)</h2>
+
+<p><strong>What AWS says:</strong> "Apply authentication, authorization, and encryption."</p>
+
+<p><strong>What it actually tests:</strong></p>
+
+<p>This is smaller but the questions are detailed:</p>
+
+<ul>
+<li><strong>Lake Formation permissions</strong> — this is the modern way to manage data lake access. Know fine-grained access control, tag-based access, and cross-account sharing.</li>
+<li><strong>KMS encryption</strong> — customer managed keys vs AWS managed keys, envelope encryption, key rotation</li>
+<li><strong>IAM policies for data services</strong> — S3 bucket policies vs IAM policies vs VPC endpoints</li>
+<li><strong>Data masking and PII detection</strong> — Macie for S3, Glue sensitive data detection</li>
+</ul>
+
+<p>The governance questions are about data lineage, data catalogs, and ensuring compliance (GDPR, HIPAA) with encryption and access controls.</p>
+
+<h2>How to Actually Prepare</h2>
+
+<p>The DEA-C01 is 65 questions in 130 minutes. Pass score: 720/1000.</p>
+
+<h3>My recommended approach:</h3>
+
+<p><strong>Weeks 1-2:</strong> AWS Skill Builder DEA-C01 learning path (free). Focus on understanding each service's purpose.</p>
+
+<p><strong>Weeks 3-4:</strong> Build a mini data pipeline. Ingest data from S3 → Glue ETL → store in Redshift → query with Athena. This one project touches 60% of the exam content.</p>
+
+<p><strong>Weeks 5-6:</strong> Practice questions. <a href="https://www.examcert.app/exams/aws-dea-c01/">AWS DEA-C01 practice tests on ExamCert</a> are scenario-heavy, which matches the real exam. $4.99 lifetime access — stop paying $300 for Boson when you can get the same prep for the price of a latte. Money-back guarantee if you don't pass.</p>
+
+<p><strong>Week 7:</strong> Review weak domains. Read the AWS documentation for services you keep getting wrong.</p>
+
+<h2>Who This Cert Is For</h2>
+
+<p>Data engineers (obviously), but also:</p>
+<ul>
+<li>Backend developers working with data pipelines</li>
+<li>Cloud architects who need data platform knowledge</li>
+<li>Analytics engineers transitioning to AWS</li>
+</ul>
+
+<p>The data engineering market is hot right now. Indeed reports 35% YoY growth in data engineer job postings. This cert signals you can build production data systems on AWS.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/aws-dea-c01/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
