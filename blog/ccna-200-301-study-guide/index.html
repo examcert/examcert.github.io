@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCNA 200-301 Study Guide: What I Wish Someone Told Me Before Starting — ExamCert Blog</title>
+<meta name="description" content="A practical CCNA 200-301 study guide covering exam format, domain breakdown, study order, and real tips from someone who's been through it.">
+<meta name="keywords" content="CCNA 200-301, CCNA study guide, Cisco CCNA, CCNA exam prep, CCNA passing score, ExamCert, practice exams">
+<meta name="author" content="ExamCert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examcert.github.io/blog/ccna-200-301-study-guide/">
+<meta property="og:title" content="CCNA 200-301 Study Guide: What I Wish Someone Told Me Before Starting">
+<meta property="og:description" content="A practical CCNA 200-301 study guide covering exam format, domain breakdown, study order, and real tips.">
+<meta property="og:url" content="https://examcert.github.io/blog/ccna-200-301-study-guide/">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+h3{color:#93c5fd;font-size:1.15rem;margin:20px 0 8px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+a:hover{color:#5a9922}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+blockquote{border-left:3px solid #75c32c;padding:10px 20px;margin:20px 0;color:#94a3b8;background:#0f172a;border-radius:0 6px 6px 0}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+.back:hover{color:#93c5fd}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>CCNA 200-301 Study Guide: What I Wish Someone Told Me Before Starting</h1>
+<div class="meta">Published March 25, 2026 · 7 min read</div>
+
+<p>The CCNA is one of those certs that looks straightforward on paper but catches a lot of people off guard. Cisco networking fundamentals, right? Should be manageable. But then you sit down with the exam objectives and realize there are <strong>six domains</strong>, subnetting questions that need to be solved in under two minutes, and a whole chunk on automation that wasn't there five years ago.</p>
+
+<p>I've helped a lot of people prep for this one, and the mistakes are almost always the same. So here's the honest version — not the marketing pitch, just what actually matters.</p>
+
+<h2>The Exam at a Glance</h2>
+
+<p>Let's get the basics out of the way:</p>
+
+<ul>
+<li><strong>Exam code:</strong> 200-301 (v1.1)</li>
+<li><strong>Questions:</strong> ~100 (mix of multiple choice, drag-and-drop, and sim-based)</li>
+<li><strong>Time:</strong> 120 minutes</li>
+<li><strong>Passing score:</strong> 825 out of 1000 (scaled)</li>
+<li><strong>Cost:</strong> $330 USD</li>
+<li><strong>Validity:</strong> 3 years</li>
+</ul>
+
+<p>That 825 score sounds like you need 82.5%, but Cisco uses scaled scoring. Realistically, aim for getting about 85% of questions right to give yourself a cushion. Some questions are weighted more than others, and you won't know which ones.</p>
+
+<h2>The Six Domains (and Where to Spend Your Time)</h2>
+
+<p>Here's where most study plans go wrong: people give every domain equal time. Don't do that. The weighting is wildly uneven.</p>
+
+<ol>
+<li><strong>Network Fundamentals (20%)</strong> — The foundation. OSI model, TCP/IP, IPv4/IPv6, wireless concepts. If you're new to networking, spend serious time here because everything else builds on it.</li>
+<li><strong>Network Access (20%)</strong> — VLANs, trunking, EtherChannel, spanning tree, wireless security. This is where hands-on lab work pays off the most.</li>
+<li><strong>IP Connectivity (25%)</strong> — The biggest chunk. Routing concepts, static routes, OSPF, and first-hop redundancy. This is where the exam gets hard.</li>
+<li><strong>IP Services (10%)</strong> — NAT, NTP, DHCP, SNMP, syslog, QoS basics. Smaller section but easy marks if you know it.</li>
+<li><strong>Security Fundamentals (15%)</strong> — ACLs, port security, AAA, VPN concepts, wireless security. Not as deep as a security cert, but they expect solid understanding.</li>
+<li><strong>Automation and Programmability (10%)</strong> — REST APIs, configuration management (Puppet, Chef, Ansible), JSON, and SDN concepts. This trips up traditional network folks who haven't touched an API before.</li>
+</ol>
+
+<p>My recommendation: spend 50% of your study time on domains 1-3. They're worth 65% of the exam and they're interconnected. If you understand fundamentals and routing well, the rest clicks into place faster.</p>
+
+<h2>Subnetting: Just Get Fast at It</h2>
+
+<p>I'm not going to sugarcoat this. You need to subnet in your head, quickly. Not with a calculator app, not by drawing out binary tables on scratch paper for five minutes. On exam day, you'll get questions where subnetting is just a prerequisite for answering the actual question — like figuring out which route a packet will take.</p>
+
+<p>The method that works for most people: practice the "magic number" technique. For any given subnet mask, subtract the interesting octet from 256 to get the block size. Then count up in blocks. Once you can do /20 through /30 without thinking, you're ready.</p>
+
+<blockquote>Spend 15 minutes a day subnetting for two weeks straight. That's it. After that, it becomes automatic and you'll actually enjoy the routing questions instead of dreading them.</blockquote>
+
+<h2>Labs Are Not Optional</h2>
+
+<p>Reading about OSPF neighbor adjacency is one thing. Watching two routers fail to form a neighbor relationship because you forgot to match the area IDs — that's where the learning happens. You <strong>need</strong> hands-on practice.</p>
+
+<p>Free options that work:</p>
+<ul>
+<li><strong>Cisco Packet Tracer</strong> — Free from Cisco's NetAcad. Covers about 80% of what you need. It's not perfect, but it handles VLANs, routing, and basic ACLs fine.</li>
+<li><strong>GNS3</strong> — More powerful but requires actual IOS images. If you have access, it's closer to real hardware.</li>
+<li><strong>EVE-NG Community</strong> — Browser-based, great for complex topologies.</li>
+</ul>
+
+<p>At minimum, build these labs: a multi-VLAN network with inter-VLAN routing, an OSPF multi-area setup, NAT configuration with inside/outside interfaces, and a basic ACL filtering scenario. If you can build all four from memory, you're in great shape.</p>
+
+<h2>The Automation Domain: Don't Panic</h2>
+
+<p>A lot of experienced network engineers freak out about the automation section. Relax. It's only 10% of the exam, and they're not asking you to write Python scripts or deploy Ansible playbooks. They want you to understand <strong>concepts</strong>.</p>
+
+<p>What you actually need to know:</p>
+<ul>
+<li>What a REST API is and how GET/POST/PUT/DELETE work</li>
+<li>Read and interpret JSON output (they'll show you a JSON blob and ask what a field means)</li>
+<li>The difference between controller-based and traditional networking</li>
+<li>What Cisco DNA Center and SD-WAN do at a high level</li>
+<li>Configuration management tools: know what Puppet, Chef, and Ansible are (Ansible is agentless — that's a favorite test question)</li>
+</ul>
+
+<p>Spend maybe a week on this. Watch a few videos, read the Cisco documentation, and do some practice questions. Don't let it stress you out more than it deserves.</p>
+
+<h2>Study Timeline: The 10-Week Plan</h2>
+
+<p>For someone with some basic IT knowledge (you know what an IP address is, you've seen a switch before), here's a realistic timeline:</p>
+
+<ul>
+<li><strong>Weeks 1-2:</strong> Network Fundamentals — deep dive into OSI, TCP/IP, IPv4/IPv6 addressing, subnetting drills</li>
+<li><strong>Weeks 3-4:</strong> Network Access — VLANs, spanning tree, EtherChannel, wireless. Start labbing here.</li>
+<li><strong>Weeks 5-7:</strong> IP Connectivity — Routing, OSPF, static routes. Heaviest section, give it three weeks. Lab everything.</li>
+<li><strong>Week 8:</strong> IP Services + Security Fundamentals — NAT, DHCP, ACLs, port security</li>
+<li><strong>Week 9:</strong> Automation + any weak areas from practice exams</li>
+<li><strong>Week 10:</strong> Full practice exams, review wrong answers, light review of weak spots</li>
+</ul>
+
+<p>Two to three hours a day is plenty. More on weekends if you can. Don't cram — networking concepts need time to connect in your brain.</p>
+
+<h2>Practice Exams: Your Most Important Tool</h2>
+
+<p>Here's the truth: you can read every networking book ever written and still fail the CCNA if you haven't practiced under exam conditions. Timed practice with realistic questions is what bridges the gap between knowing the material and passing the test.</p>
+
+<p>What to look for in practice exams: scenario-based questions (not just definitions), proper time pressure, and detailed explanations for wrong answers. The explanations matter more than the score — every wrong answer is a learning opportunity.</p>
+
+<p><a href="https://www.examcert.app/exams/ccna-200-301/">ExamCert</a> has a solid free question bank for CCNA 200-301. I'd suggest doing at least 3-4 full-length practice exams before booking your real exam date. If you're consistently scoring above 85%, you're ready.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/ccna-200-301/">Start Free CCNA Practice on ExamCert →</a>
+</div>
+
+<h2>Exam Day Tips</h2>
+
+<p>A few things that actually help:</p>
+
+<ul>
+<li><strong>Do a brain dump immediately.</strong> As soon as the exam starts, write down subnet ranges, OSPF cost formula (10⁸/bandwidth), and any other formulas you've memorized. Use the whiteboard tool. Takes 2 minutes, saves you 10.</li>
+<li><strong>Flag and move on.</strong> If a question takes more than 3 minutes, flag it. You have roughly 72 seconds per question — some will take 30 seconds, others will take 3 minutes. Don't burn 5 minutes on one question when there are easy points waiting.</li>
+<li><strong>Read the question twice.</strong> Cisco loves "which of the following is NOT" and "select TWO" formats. Misreading the question is the dumbest way to lose points.</li>
+<li><strong>Simulations first.</strong> If you get sim-based questions, they're often worth more. Consider doing them while you're fresh.</li>
+</ul>
+
+<h2>Is the CCNA Still Worth It in 2026?</h2>
+
+<p>Short answer: yes, especially if you're getting into networking or want to prove you understand infrastructure. The cloud hasn't replaced the network — it runs on it. Every cloud provider, every data center, every enterprise still needs people who understand routing, switching, and security at the network level.</p>
+
+<p>The CCNA also opens the door to Cisco's specialist and professional tracks (CCNP Enterprise, CCNP Security, etc.), and it's recognized by hiring managers globally. At $330 for the exam, it's a reasonable investment compared to some cloud certs that cost twice as much.</p>
+
+<p>Put in the work, get your hands on a lab, do your practice exams, and you'll get there. No shortcuts, but no mystery either.</p>
+
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
