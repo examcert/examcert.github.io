@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AZ-104 April 2026 Update Isn't Scary — If You Study the Right Way — ExamCert Blog</title>
+<meta name="description" content="Azure AZ-104 gets an April 2026 update. Here's what actually changed in the exam domains and how to adjust your study plan without starting over.">
+<meta name="keywords" content="AZ-104, Azure Administrator, AZ-104 April 2026 update, Azure certification, ExamCert, practice exams">
+<meta name="author" content="ExamCert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examcert.github.io/blog/azure-az-104-april-2026-update/">
+<meta property="og:title" content="The AZ-104 April 2026 Update Isn't Scary — If You Study the Right Way">
+<meta property="og:description" content="Azure AZ-104 gets an April 2026 update. Here's what actually changed in the exam domains and how to adjust your study plan without starting over.">
+<meta property="og:url" content="https://examcert.github.io/blog/azure-az-104-april-2026-update/">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1a;color:#e2e8f0;line-height:1.8}
+.header{background:#0f2347;padding:16px 20px;text-align:center;border-bottom:2px solid #75c32c}
+.header a{color:#75c32c;text-decoration:none;font-size:1.5rem;font-weight:700}
+.article{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{color:#75c32c;font-size:2rem;margin-bottom:10px;line-height:1.3}
+.meta{color:#64748b;font-size:0.9rem;margin-bottom:30px}
+h2{color:#60a5fa;font-size:1.4rem;margin:30px 0 12px;border-bottom:1px solid #1e293b;padding-bottom:6px}
+h3{color:#93c5fd;font-size:1.15rem;margin:20px 0 8px}
+p{margin-bottom:16px;color:#cbd5e1}
+a{color:#75c32c;text-decoration:underline}
+a:hover{color:#5a9922}
+ul,ol{margin:0 0 16px 24px;color:#cbd5e1}
+li{margin-bottom:6px}
+strong{color:#f1f5f9}
+blockquote{border-left:3px solid #75c32c;padding:10px 20px;margin:20px 0;color:#94a3b8;background:#0f172a;border-radius:0 6px 6px 0}
+.cta-box{background:linear-gradient(135deg,#0f2347,#1a365d);border:1px solid #75c32c;border-radius:10px;padding:24px;text-align:center;margin:30px 0}
+.cta-box a{display:inline-block;background:#75c32c;color:#0f2347;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:700}
+.footer{text-align:center;padding:30px 20px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:40px}
+.back{display:inline-block;margin-bottom:20px;color:#60a5fa;text-decoration:none;font-size:0.9rem}
+.back:hover{color:#93c5fd}
+</style>
+</head>
+<body>
+<div class="header"><a href="https://examcert.github.io/">ExamCert Blog</a></div>
+<article class="article">
+<a href="https://examcert.github.io/" class="back">← Back to ExamCert</a>
+<h1>The AZ-104 April 2026 Update Isn't Scary — If You Study the Right Way</h1>
+<div class="meta">Published March 29, 2026 · 5 min read</div>
+
+<p>Every few months, Microsoft quietly updates their exam objectives. Usually nobody notices. But the <strong>April 2026 AZ-104 update</strong> is getting people nervous — and honestly, most of that anxiety is misplaced.</p>
+
+<p>I've been watching the AZ-104 evolve since it replaced the old AZ-103, and this latest revision follows a pattern Microsoft has repeated across their entire certification lineup: <strong>more identity, more automation, less manual portal clicking.</strong></p>
+
+<p>If you're mid-study or about to start, don't panic. Let me walk you through what's actually different and what that means for your prep.</p>
+
+<h2>Quick Exam Facts (Because People Always Ask)</h2>
+
+<ul>
+<li><strong>Exam code:</strong> AZ-104</li>
+<li><strong>Duration:</strong> 120 minutes</li>
+<li><strong>Questions:</strong> 40–60 (mix of multiple choice, case studies, drag-and-drop)</li>
+<li><strong>Passing score:</strong> 700 out of 1000 (scaled)</li>
+<li><strong>Cost:</strong> $165 USD</li>
+<li><strong>Certification:</strong> Microsoft Certified: Azure Administrator Associate</li>
+<li><strong>Validity:</strong> 1 year (free renewal assessment online)</li>
+</ul>
+
+<h2>What the April 2026 Update Actually Changes</h2>
+
+<p>Microsoft doesn't publish dramatic changelogs. They just update the skills measured document and expect you to figure it out. After comparing the old and new objectives, here's the gist:</p>
+
+<h3>More weight on Entra ID (formerly Azure AD)</h3>
+<p>The identity section keeps growing. Microsoft renamed Azure AD to Entra ID and they clearly want administrators to stop treating identity as an afterthought. Expect more questions on <strong>conditional access policies, Privileged Identity Management (PIM), and role-based access control scoping</strong>. If you've been skating by with "I know how to create a user," that's not enough anymore.</p>
+
+<h3>Azure Monitor and alerting got a bigger spotlight</h3>
+<p>Monitoring questions have always been on the exam, but the updated objectives put more emphasis on <strong>Log Analytics workspaces, KQL queries for diagnostic logs, and action groups</strong>. Microsoft wants admins who can actually troubleshoot, not just deploy and walk away.</p>
+
+<h3>ARM templates are sharing space with Bicep</h3>
+<p>This one's been coming for a while. While ARM JSON templates aren't going away, <strong>Bicep is now explicitly mentioned</strong> in the infrastructure-as-code section. If you've never written a Bicep file, spend an afternoon with it. The syntax is way cleaner than ARM JSON, and Microsoft is clearly pushing it as the future.</p>
+
+<h3>Networking got slightly reorganized</h3>
+<p>Virtual network peering, NSGs, and Azure Firewall are still the core. But the updated objectives give a bit more attention to <strong>Private Endpoints and Private Link</strong>. Makes sense — every enterprise is moving toward private connectivity, and Microsoft wants admins who understand it.</p>
+
+<h2>The 5 Domains (and Where to Spend Your Time)</h2>
+
+<p>Here's how the exam weight breaks down:</p>
+
+<ol>
+<li><strong>Manage Azure identities and governance (20–25%)</strong> — This is where most people underperform. Don't skip it.</li>
+<li><strong>Implement and manage storage (15–20%)</strong> — Blob tiers, replication options, access keys vs SAS tokens. Know them cold.</li>
+<li><strong>Deploy and manage Azure compute resources (20–25%)</strong> — VMs, App Service, containers, availability sets/zones. The bread and butter.</li>
+<li><strong>Implement and manage virtual networking (15–20%)</strong> — Subnetting, NSGs, peering, load balancers, DNS zones.</li>
+<li><strong>Monitor and maintain Azure resources (10–15%)</strong> — Azure Monitor, alerts, backup, recovery. The section people study last and regret it.</li>
+</ol>
+
+<blockquote>If I had to restart my AZ-104 prep from scratch in 2026, I'd spend 40% of my time on domains 1 and 3. That's where the exam hits hardest, and that's where the April update added the most nuance.</blockquote>
+
+<h2>The Biggest Mistake People Make</h2>
+
+<p>They study by watching videos. Only videos. Hours and hours of someone clicking through the Azure portal while they nod along feeling productive.</p>
+
+<p>Here's the thing: <strong>the AZ-104 tests whether you can administer Azure, not whether you can watch someone else do it.</strong></p>
+
+<p>You need hands-on time. Create a free Azure account (Microsoft gives you $200 in credits). Deploy a VM. Set up a VNet with peering. Create a storage account and configure lifecycle management. Break something and fix it.</p>
+
+<p>Then — and this is crucial — <strong>do practice questions</strong>. Not to memorize answers, but to understand how Microsoft phrases things. Their question style has a specific logic, and getting used to it makes a massive difference on exam day.</p>
+
+<h2>Who Should Get the AZ-104?</h2>
+
+<p>This cert hits a sweet spot that few others do. It's not entry-level like the AZ-900, but it's not specialist-level like the AZ-500 or AZ-305. It's the <strong>workhorse admin cert</strong> — the one that tells employers you can actually manage an Azure environment day-to-day.</p>
+
+<p>It's ideal if you're:</p>
+<ul>
+<li>A sysadmin moving from on-prem to cloud</li>
+<li>A help desk or support engineer looking to level up</li>
+<li>An AWS admin who needs to prove Azure competency</li>
+<li>Anyone who manages Azure resources as part of their job</li>
+</ul>
+
+<p>Hiring managers I've talked to consistently rank AZ-104 as the <strong>most practical Azure cert</strong> for ops roles. The AZ-900 tells them you understand concepts. The AZ-104 tells them you can do the work.</p>
+
+<h2>My Honest 8-Week Study Plan</h2>
+
+<p><strong>Weeks 1–2:</strong> Identity and governance. Entra ID, RBAC, policies, management groups. Set up a test tenant and get your hands dirty.</p>
+
+<p><strong>Weeks 3–4:</strong> Compute and containers. VMs (availability sets, scale sets, extensions), App Service plans, Azure Container Instances. Deploy everything at least once.</p>
+
+<p><strong>Weeks 5–6:</strong> Storage and networking. Blob tiers, file shares, replication. VNets, subnets, NSGs, peering, load balancers. This is where the exam gets tricky with scenario questions.</p>
+
+<p><strong>Weeks 7–8:</strong> Monitoring, backup, and review. Azure Monitor, Log Analytics, alerts, Azure Backup, Site Recovery. Then hit practice exams hard for the last week.</p>
+
+<h2>Is It Worth It in 2026?</h2>
+
+<p>Azure's market share keeps climbing. Microsoft's enterprise relationships mean Azure is the default choice for thousands of companies. And with the AI push (Azure OpenAI, Copilot integrations), the platform is only getting more complex — which means more demand for people who can actually manage it.</p>
+
+<p>At $165, the AZ-104 is one of the better deals in certification. It's cheaper than AWS associate exams ($150 for the exam alone, but you'll likely spend more on prep), and the free annual renewal means you don't lose it after a couple years.</p>
+
+<p>The April 2026 update makes it slightly harder? Sure. But it also makes the cert more relevant. Microsoft is aligning the exam with what real Azure admins actually do in 2026. That's a good thing.</p>
+
+<div class="cta-box">
+<p style="color:#e2e8f0;margin-bottom:12px;font-size:1.1rem"><strong>Ready to practice?</strong></p>
+<a href="https://www.examcert.app/exams/azure-az-104/">Start Free Practice on ExamCert →</a>
+</div>
+</article>
+<div class="footer">
+<p>© 2026 <a href="https://www.examcert.app/">ExamCert</a> — Free IT Certification Exam Prep</p>
+<p style="margin-top:8px"><a href="https://examcert.github.io/">Blog Home</a></p>
+</div>
+</body>
+</html>
